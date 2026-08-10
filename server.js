@@ -7,6 +7,8 @@ const rateLimit = require('express-rate-limit');
 const path = require('path');
 
 const app = express();
+app.set('trust proxy', 1);  // <-- FIX: Trust Render's proxy
+
 const PORT = process.env.PORT || 3000;
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/mutual_transfer';
 
@@ -28,15 +30,14 @@ app.use(express.urlencoded({ extended: true }));
 
 // Rate limiting
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // limit each IP to 100 requests per windowMs
+  windowMs: 15 * 60 * 1000,
+  max: 100,
   message: { success: false, message: 'Too many requests, please try again later.' }
 });
 app.use('/api/', limiter);
 
-// Stricter rate limit for registration
 const registerLimiter = rateLimit({
-  windowMs: 60 * 60 * 1000, // 1 hour
+  windowMs: 60 * 60 * 1000,
   max: 10,
   message: { success: false, message: 'Too many registration attempts. Please try again later.' }
 });
@@ -44,32 +45,29 @@ app.use('/api/register', registerLimiter);
 
 // MongoDB Connection
 mongoose.connect(MONGODB_URI)
-  .then(() => console.log('✅ MongoDB connected successfully'))
+  .then(() => console.log('MongoDB connected successfully'))
   .catch(err => {
-    console.error('❌ MongoDB connection error:', err.message);
-    console.log('Make sure your MONGODB_URI is correct in the .env file');
+    console.error('MongoDB connection error:', err.message);
     process.exit(1);
   });
 
 // API Routes
 app.use('/api', require('./routes/employees'));
 
-// Serve static files (frontend)
+// Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Serve index.html for all non-API routes (SPA support)
+// SPA fallback
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Global error handler
+// Error handler
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ success: false, message: 'Something went wrong!' });
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
-  console.log(`📁 Frontend: http://localhost:${PORT}`);
-  console.log(`🔌 API Base: http://localhost:${PORT}/api`);
+  console.log(`Server running on port ${PORT}`);
 });
