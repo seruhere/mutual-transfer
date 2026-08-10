@@ -7,7 +7,7 @@ const rateLimit = require('express-rate-limit');
 const path = require('path');
 
 const app = express();
-app.set('trust proxy', 1);  // <-- FIX: Trust Render's proxy
+app.set('trust proxy', 1);
 
 const PORT = process.env.PORT || 3000;
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/mutual_transfer';
@@ -28,10 +28,13 @@ app.use(cors());
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
-// Rate limiting
+// Rate limiting - configured for Render's proxy
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 100,
+  standardHeaders: true,
+  legacyHeaders: false,
+  validate: { xForwardedForHeader: false },
   message: { success: false, message: 'Too many requests, please try again later.' }
 });
 app.use('/api/', limiter);
@@ -39,6 +42,9 @@ app.use('/api/', limiter);
 const registerLimiter = rateLimit({
   windowMs: 60 * 60 * 1000,
   max: 10,
+  standardHeaders: true,
+  legacyHeaders: false,
+  validate: { xForwardedForHeader: false },
   message: { success: false, message: 'Too many registration attempts. Please try again later.' }
 });
 app.use('/api/register', registerLimiter);

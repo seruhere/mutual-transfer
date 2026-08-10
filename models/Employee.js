@@ -46,15 +46,14 @@ const employeeSchema = new mongoose.Schema({
   expiresAt: {
     type: Date,
     default: function() {
-      return new Date(Date.now() + 90 * 24 * 60 * 60 * 1000); // 90 days
-    },
-    index: true
+      return new Date(Date.now() + 90 * 24 * 60 * 60 * 1000);
+    }
   }
 }, {
   timestamps: true
 });
 
-// Auto-delete expired documents using TTL index
+// TTL index for auto-deletion after 90 days
 employeeSchema.index({ expiresAt: 1 }, { expireAfterSeconds: 0 });
 
 // Text search index for districts
