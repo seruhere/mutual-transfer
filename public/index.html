@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mutual Transfer Partner - India Govt Jobs</title>
+<style>
+/* ========== CSS VARIABLES & THEME ========== */
+:root {
+  --bg: #f8f9fa;
+  --surface: #ffffff;
+  --surface-2: #f1f3f5;
+  --text: #1a1a2e;
+  --text-secondary: #5a5a6e;
+  --text-muted: #8a8a9e;
+  --border: #e2e4e8;
+  --primary: #1a1a2e;
+  --primary-text: #ffffff;
+  --accent: #2563eb;
+  --accent-soft: #dbeafe;
+  --danger: #dc2626;
+  --danger-soft: #fee2e2;
+  --success: #16a34a;
+  --success-soft: #dcfce7;
+  --warning: #d97706;
+  --warning-soft: #fef3c7;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05);
+  --shadow-lg: 0 4px 6px rgba(0,0,0,0.05), 0 10px 25px rgba(0,0,0,0.08);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] {
+  --bg: #0f1117;
+  --surface: #1a1d26;
+  --surface-2: #22262f;
+  --text: #e8e8ef;
+  --text-secondary: #a0a0b0;
+  --text-muted: #6a6a7e;
+  --border: #2a2d38;
+  --primary: #e8e8ef;
+  --primary-text: #0f1117;
+  --accent: #3b82f6;
+  --accent-soft: rgba(59,130,246,0.15);
+  --danger: #ef4444;
+  --danger-soft: rgba(239,68,68,0.15);
+  --success: #22c55e;
+  --success-soft: rgba(34,197,94,0.15);
+  --warning: #f59e0b;
+  --warning-soft: rgba(245,158,11,0.15);
+  --shadow: 0 1px 3px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.2);
+  --shadow-lg: 0 4px 6px rgba(0,0,0,0.3), 0 10px 25px rgba(0,0,0,0.25);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  transition: var(--transition);
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 100;
+  backdrop-filter: blur(12px);
+  transition: var(--transition);
+}
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 0;
+}
+.logo {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 20px; font-weight: 700; color: var(--text);
+  text-decoration: none;
+}
+.logo-icon {
+  width: 40px; height: 40px; background: var(--accent);
+  border-radius: 10px; display: flex; align-items: center; justify-content: center;
+  color: white; font-size: 20px;
+}
+.nav-links { display: flex; gap: 8px; align-items: center; }
+.nav-btn {
+  padding: 8px 16px; border-radius: var(--radius-sm);
+  border: none; background: transparent; color: var(--text-secondary);
+  font-size: 14px; font-weight: 500; cursor: pointer;
+  transition: var(--transition); font-family: inherit;
+}
+.nav-btn:hover, .nav-btn.active {
+  background: var(--surface-2); color: var(--text);
+}
+.theme-toggle {
+  width: 40px; height: 40px; border-radius: 10px;
+  border: 1px solid var(--border); background: var(--surface);
+  color: var(--text-secondary); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: var(--transition);
+}
+.theme-toggle:hover { background: var(--surface-2); color: var(--text); }
+
+.hero { padding: 60px 0 40px; text-align: center; }
+.hero h1 { font-size: 42px; font-weight: 700; line-height: 1.15; margin-bottom: 16px; letter-spacing: -0.5px; }
+.hero p { font-size: 18px; color: var(--text-secondary); max-width: 560px; margin: 0 auto 32px; }
+.stats-bar { display: flex; justify-content: center; gap: 48px; margin-top: 32px; }
+.stat-item { text-align: center; }
+.stat-num { font-size: 32px; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.stat-label { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+
+.card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 32px; margin-bottom: 24px;
+  box-shadow: var(--shadow); transition: var(--transition);
+}
+.card:hover { box-shadow: var(--shadow-lg); }
+.card-title { font-size: 20px; font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+.card-subtitle { font-size: 14px; color: var(--text-secondary); margin-bottom: 24px; }
+
+.form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group.full { grid-column: 1 / -1; }
+label { font-size: 13px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.4px; }
+input, select, textarea {
+  padding: 12px 14px; border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+  background: var(--bg); color: var(--text); font-size: 15px; font-family: inherit;
+  transition: var(--transition);
+}
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+input::placeholder { color: var(--text-muted); }
+select { cursor: pointer; appearance: none; }
+.select-wrap { position: relative; }
+.select-wrap::after { content: "▼"; position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 10px; color: var(--text-muted); pointer-events: none; }
+
+.btn {
+  padding: 12px 24px; border-radius: var(--radius-sm); border: none;
+  font-size: 15px; font-weight: 600; font-family: inherit; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  transition: var(--transition);
+}
+.btn-primary { background: var(--primary); color: var(--primary-text); }
+.btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+.btn-accent { background: var(--accent); color: white; }
+.btn-accent:hover { opacity: 0.9; transform: translateY(-1px); }
+.btn-ghost { background: var(--surface-2); color: var(--text); border: 1px solid var(--border); }
+.btn-ghost:hover { background: var(--border); }
+.btn-danger { background: var(--danger-soft); color: var(--danger); }
+.btn-danger:hover { background: var(--danger); color: white; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; }
+
+.search-box { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+.search-box input, .search-box select { flex: 1; min-width: 200px; }
+
+.results-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+.result-card {
+  background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  padding: 20px; transition: var(--transition); position: relative;
+}
+.result-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.result-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.result-avatar {
+  width: 44px; height: 44px; border-radius: 50%; background: var(--accent-soft);
+  color: var(--accent); display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 600; flex-shrink: 0;
+}
+.result-name { font-weight: 600; font-size: 16px; }
+.result-meta { font-size: 13px; color: var(--text-muted); }
+.result-row { display: flex; align-items: center; gap: 8px; padding: 6px 0; font-size: 14px; color: var(--text-secondary); }
+.result-row svg { flex-shrink: 0; color: var(--text-muted); }
+.result-row .label { color: var(--text-muted); min-width: 80px; }
+.result-row .value { color: var(--text); font-weight: 500; }
+
+.contact-reveal {
+  display: flex; align-items: center; gap: 10px;
+  margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);
+}
+.contact-masked { font-family: monospace; font-size: 15px; letter-spacing: 1px; color: var(--text-secondary); }
+.contact-full { font-family: monospace; font-size: 15px; letter-spacing: 1px; color: var(--success); font-weight: 600; }
+.eye-btn {
+  width: 36px; height: 36px; border-radius: 8px; border: 1px solid var(--border);
+  background: var(--surface); color: var(--text-muted); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: var(--transition);
+}
+.eye-btn:hover { background: var(--accent-soft); color: var(--accent); border-color: var(--accent); }
+
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px); z-index: 1000;
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px; opacity: 0; visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+.modal-overlay.active { opacity: 1; visibility: visible; }
+.modal {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  max-width: 480px; width: 100%; padding: 28px; box-shadow: var(--shadow-lg);
+  transform: scale(0.95); transition: transform 0.3s;
+}
+.modal-overlay.active .modal { transform: scale(1); }
+.modal-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.modal-header svg { color: var(--warning); flex-shrink: 0; }
+.modal-title { font-size: 18px; font-weight: 600; }
+.modal-body { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px; }
+.modal-body ul { margin: 10px 0 10px 20px; }
+.modal-body li { margin: 4px 0; }
+.modal-footer { display: flex; gap: 10px; justify-content: flex-end; }
+
+.empty-state { text-align: center; padding: 60px 20px; }
+.empty-state-icon {
+  width: 64px; height: 64px; margin: 0 auto 20px;
+  background: var(--surface-2); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px; color: var(--text-muted);
+}
+.empty-state h3 { font-size: 18px; margin-bottom: 8px; }
+.empty-state p { color: var(--text-muted); font-size: 14px; }
+
+.alert {
+  padding: 14px 18px; border-radius: var(--radius-sm); font-size: 14px;
+  margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
+  animation: slideIn 0.3s ease;
+}
+@keyframes slideIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+.alert-success { background: var(--success-soft); color: var(--success); border: 1px solid var(--success); }
+.alert-error { background: var(--danger-soft); color: var(--danger); border: 1px solid var(--danger); }
+.alert-warning { background: var(--warning-soft); color: var(--warning); border: 1px solid var(--warning); }
+
+.data-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.data-table th, .data-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+.data-table th { font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; background: var(--surface-2); }
+.data-table tr:hover td { background: var(--surface-2); }
+.data-table td { color: var(--text-secondary); }
+.data-table .name-cell { font-weight: 500; color: var(--text); }
+
+.section { display: none; animation: fadeIn 0.4s ease; }
+.section.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--border); margin-top: 40px; color: var(--text-muted); font-size: 13px; }
+
+.badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.badge-gds { background: var(--accent-soft); color: var(--accent); }
+.badge-dept { background: var(--success-soft); color: var(--success); }
+
+.loading-spinner {
+  width: 18px; height: 18px; border: 2px solid var(--border);
+  border-top-color: var(--accent); border-radius: 50%;
+  animation: spin 0.8s linear infinite; display: inline-block;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 640px) {
+  .hero h1 { font-size: 28px; }
+  .hero p { font-size: 16px; }
+  .stats-bar { gap: 24px; }
+  .stat-num { font-size: 24px; }
+  .card { padding: 20px; }
+  .form-grid { grid-template-columns: 1fr; }
+  .search-box { flex-direction: column; }
+  .search-box input, .search-box select { width: 100%; }
+  .results-grid { grid-template-columns: 1fr; }
+  .header-inner { flex-wrap: wrap; gap: 12px; }
+  .nav-links { order: 3; width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a href="#" class="logo" onclick="showSection('home')">
+      <div class="logo-icon">🔄</div>
+      <span>Mutual Transfer</span>
+    </a>
+    <nav class="nav-links">
+      <button class="nav-btn active" onclick="showSection('home')" data-nav="home">Home</button>
+      <button class="nav-btn" onclick="showSection('register')" data-nav="register">Register</button>
+      <button class="nav-btn" onclick="showSection('search')" data-nav="search">Find Partner</button>
+      <button class="nav-btn" onclick="showSection('listings')" data-nav="listings">All Listings</button>
+    </nav>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" id="themeBtn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="home" class="section active">
+    <div class="hero">
+      <h1>Find Your Mutual Transfer Partner</h1>
+      <p>A secure platform for Indian government employees to find mutual transfer partners across districts. Your data stays for 90 days only.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <button class="btn btn-primary" onclick="showSection('register')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          Register Now
+        </button>
+        <button class="btn btn-ghost" onclick="showSection('search')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          Search Partner
+        </button>
+      </div>
+      <div class="stats-bar">
+        <div class="stat-item"><div class="stat-num" id="statTotal">0</div><div class="stat-label">Active Listings</div></div>
+        <div class="stat-item"><div class="stat-num" id="statMatches">0</div><div class="stat-label">Matches Made</div></div>
+        <div class="stat-item"><div class="stat-num" id="statDistricts">0</div><div class="stat-label">Districts Covered</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">How It Works</div>
+      <div class="card-subtitle">Three simple steps to find your mutual transfer partner</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;">
+        <div style="text-align:center;padding:20px;">
+          <div style="width:56px;height:56px;background:var(--accent-soft);color:var(--accent);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;font-weight:700;">1</div>
+          <h4 style="margin-bottom:8px;">Register</h4>
+          <p style="font-size:14px;color:var(--text-secondary);">Fill in your details including current and desired transfer districts. Your listing stays active for 90 days.</p>
+        </div>
+        <div style="text-align:center;padding:20px;">
+          <div style="width:56px;height:56px;background:var(--success-soft);color:var(--success);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;font-weight:700;">2</div>
+          <h4 style="margin-bottom:8px;">Search</h4>
+          <p style="font-size:14px;color:var(--text-secondary);">Enter your current and required districts to find employees looking for a mutual swap.</p>
+        </div>
+        <div style="text-align:center;padding:20px;">
+          <div style="width:56px;height:56px;background:var(--warning-soft);color:var(--warning);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;font-weight:700;">3</div>
+          <h4 style="margin-bottom:8px;">Connect</h4>
+          <p style="font-size:14px;color:var(--text-secondary);">Accept the disclaimer to reveal contact details and coordinate your mutual transfer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="register" class="section">
+    <div class="hero" style="padding:40px 0 20px;">
+      <h1 style="font-size:32px;">Register Your Transfer Request</h1>
+      <p>Fill in your details below. Your information will be visible for 90 days.</p>
+    </div>
+    <div class="card">
+      <div id="regAlert"></div>
+      <form id="registerForm" onsubmit="handleRegister(event)">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" id="regName" placeholder="Enter your full name" required>
+          </div>
+          <div class="form-group">
+            <label>Employee ID *</label>
+            <input type="text" id="regEmpId" placeholder="e.g., EMP123456" required>
+          </div>
+          <div class="form-group">
+            <label>Designation *</label>
+            <div class="select-wrap">
+              <select id="regDesignation" required>
+                <option value="">Select designation</option>
+                <option value="GDS">GDS</option>
+                <option value="Departmental">Departmental</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Contact Number *</label>
+            <input type="tel" id="regPhone" placeholder="10-digit mobile number" pattern="[0-9]{10}" maxlength="10" required>
+          </div>
+          <div class="form-group">
+            <label>Current Working District *</label>
+            <input type="text" id="regCurrentDistrict" placeholder="e.g., Ahmedabad" required list="districtList">
+          </div>
+          <div class="form-group">
+            <label>Required Transfer District *</label>
+            <input type="text" id="regRequiredDistrict" placeholder="e.g., Surat" required list="districtList">
+          </div>
+        </div>
+        <datalist id="districtList">
+          <option value="Ahmedabad"><option value="Amritsar"><option value="Bangalore">
+          <option value="Bhopal"><option value="Bhubaneswar"><option value="Chandigarh">
+          <option value="Chennai"><option value="Coimbatore"><option value="Delhi">
+          <option value="Guwahati"><option value="Hyderabad"><option value="Indore">
+          <option value="Jaipur"><option value="Kanpur"><option value="Kochi">
+          <option value="Kolkata"><option value="Lucknow"><option value="Ludhiana">
+          <option value="Madurai"><option value="Mumbai"><option value="Mysore">
+          <option value="Nagpur"><option value="Patna"><option value="Pune">
+          <option value="Raipur"><option value="Ranchi"><option value="Shimla">
+          <option value="Surat"><option value="Thiruvananthapuram"><option value="Vadodara">
+          <option value="Varanasi"><option value="Visakhapatnam">
+        </datalist>
+        <div style="margin-top:24px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+          <button type="submit" class="btn btn-primary" id="regSubmitBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            Submit Registration
+          </button>
+          <button type="reset" class="btn btn-ghost">Clear Form</button>
+        </div>
+        <p style="margin-top:16px;font-size:13px;color:var(--text-muted);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:4px;"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          Your data will be automatically deleted after 90 days. Duplicate entries by Employee ID are not allowed.
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <section id="search" class="section">
+    <div class="hero" style="padding:40px 0 20px;">
+      <h1 style="font-size:32px;">Find Your Mutual Partner</h1>
+      <p>Search for employees whose current district matches your required district.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Search Criteria</div>
+      <div class="card-subtitle">Enter your details to find a mutual transfer match</div>
+      <div class="search-box">
+        <input type="text" id="searchCurrent" placeholder="Your current district" list="districtList">
+        <input type="text" id="searchRequired" placeholder="Your required district" list="districtList">
+        <div class="select-wrap" style="min-width:160px;">
+          <select id="searchDesignation">
+            <option value="">Any designation</option>
+            <option value="GDS">GDS</option>
+            <option value="Departmental">Departmental</option>
+          </select>
+        </div>
+        <button class="btn btn-accent" onclick="performSearch()" id="searchBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          Search
+        </button>
+        <button class="btn btn-ghost" onclick="clearSearch()">Clear</button>
+      </div>
+      <div id="searchResults"></div>
+    </div>
+  </section>
+
+  <section id="listings" class="section">
+    <div class="hero" style="padding:40px 0 20px;">
+      <h1 style="font-size:32px;">All Active Listings</h1>
+      <p>Browse all registered transfer requests currently active on the platform.</p>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
+        <div class="card-title" style="margin:0;">Registered Employees</div>
+        <button class="btn btn-danger" onclick="clearAllData()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+          Clear All Data
+        </button>
+      </div>
+      <div id="listingsTable"></div>
+    </div>
+  </section>
+
+</main>
+
+<div class="modal-overlay" id="disclaimerModal">
+  <div class="modal">
+    <div class="modal-header">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <div class="modal-title">Important Disclaimer</div>
+    </div>
+    <div class="modal-body">
+      <p>Before revealing the contact number, you must agree to the following terms:</p>
+      <ul>
+        <li>You will use the contact information solely for the purpose of mutual transfer coordination.</li>
+        <li>You will not share this contact number with any third party.</li>
+        <li>You will not use this number for harassment, spam, or any unlawful activity.</li>
+        <li>You will respect the privacy and consent of the matched individual.</li>
+        <li>Any misuse may lead to legal action under applicable Indian laws.</li>
+      </ul>
+      <p style="margin-top:12px;font-weight:600;color:var(--text);">By clicking "I Agree", you accept full responsibility for appropriate use of this contact information.</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeDisclaimer()">Cancel</button>
+      <button class="btn btn-accent" onclick="acceptDisclaimer()">I Agree & Reveal</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p> Mutual Transfer Partner Finder | Made for Indian Government Employees</p>
+  <p style="margin-top:4px;">Data auto-deletes after 90 days. Use responsibly.</p>
+</footer>
+
+<script>
+// ========== CONFIG ==========
+const API_BASE = ''; // Same origin - empty means current domain
+let currentRevealId = null;
+let acceptedDisclaimer = false;
+
+// ========== INIT ==========
+document.addEventListener('DOMContentLoaded', () => {
+  initTheme();
+  updateStats();
+  if (document.getElementById('listings').classList.contains('active')) renderListings();
+});
+
+// ========== THEME ==========
+function initTheme() {
+  const saved = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', saved);
+  updateThemeIcon(saved);
+}
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme') || 'light';
+  const next = current === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  updateThemeIcon(next);
+}
+function updateThemeIcon(theme) {
+  const btn = document.getElementById('themeBtn');
+  if (theme === 'dark') {
+    btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
+  } else {
+    btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+  }
+}
+
+// ========== NAVIGATION ==========
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`[data-nav="${id}"]`)?.classList.add('active');
+  if (id === 'listings') renderListings();
+  if (id === 'home') updateStats();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ========== API HELPERS ==========
+async function apiPost(endpoint, body) {
+  const res = await fetch(`${API_BASE}${endpoint}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+  return res.json();
+}
+async function apiGet(endpoint) {
+  const res = await fetch(`${API_BASE}${endpoint}`);
+  return res.json();
+}
+async function apiDelete(endpoint) {
+  const res = await fetch(`${API_BASE}${endpoint}`, { method: 'DELETE' });
+  return res.json();
+}
+
+// ========== REGISTRATION ==========
+async function handleRegister(e) {
+  e.preventDefault();
+  const alertBox = document.getElementById('regAlert');
+  const btn = document.getElementById('regSubmitBtn');
+  alertBox.innerHTML = '';
+  btn.disabled = true;
+  btn.innerHTML = '<span class="loading-spinner"></span> Submitting...';
+
+  const name = document.getElementById('regName').value.trim();
+  const empId = document.getElementById('regEmpId').value.trim();
+  const designation = document.getElementById('regDesignation').value;
+  const phone = document.getElementById('regPhone').value.trim();
+  const currentDistrict = document.getElementById('regCurrentDistrict').value.trim();
+  const requiredDistrict = document.getElementById('regRequiredDistrict').value.trim();
+
+  if (currentDistrict.toLowerCase() === requiredDistrict.toLowerCase()) {
+    alertBox.innerHTML = '<div class="alert alert-warning">Current and required districts cannot be the same.</div>';
+    btn.disabled = false;
+    btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Submit Registration';
+    return;
+  }
+
+  try {
+    const result = await apiPost('/api/register', {
+      name, empId, designation, phone, currentDistrict, requiredDistrict
+    });
+
+    if (result.success) {
+      alertBox.innerHTML = '<div class="alert alert-success">' + result.message + '</div>';
+      document.getElementById('registerForm').reset();
+      updateStats();
+    } else {
+      alertBox.innerHTML = '<div class="alert alert-error">' + result.message + '</div>';
+    }
+  } catch (err) {
+    alertBox.innerHTML = '<div class="alert alert-error">Network error. Please check your connection and try again.</div>';
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Submit Registration';
+}
+
+// ========== SEARCH ==========
+async function performSearch() {
+  const current = document.getElementById('searchCurrent').value.trim();
+  const required = document.getElementById('searchRequired').value.trim();
+  const designation = document.getElementById('searchDesignation').value;
+  const container = document.getElementById('searchResults');
+  const btn = document.getElementById('searchBtn');
+
+  if (!current || !required) {
+    container.innerHTML = '<div class="alert alert-warning">Please enter both current and required districts.</div>';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.innerHTML = '<span class="loading-spinner"></span> Searching...';
+
+  try {
+    let url = `/api/search?current=${encodeURIComponent(current)}&required=${encodeURIComponent(required)}`;
+    if (designation) url += `&designation=${encodeURIComponent(designation)}`;
+
+    const result = await apiGet(url);
+
+    if (!result.success) {
+      container.innerHTML = '<div class="alert alert-error">' + result.message + '</div>';
+      btn.disabled = false;
+      btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg> Search';
+      return;
+    }
+
+    if (result.count === 0) {
+      container.innerHTML = `
+        <div class="empty-state">
+          <div class="empty-state-icon">🔍</div>
+          <h3>No matches found</h3>
+          <p>No employees found looking to transfer from <strong>${escapeHtml(capitalize(required))}</strong> to <strong>${escapeHtml(capitalize(current))}</strong>.
+          <br>Try broadening your search or check back later.</p>
+        </div>`;
+    } else {
+      let html = `<div style="margin-bottom:16px;font-size:14px;color:var(--text-secondary);">Found <strong>${result.count}</strong> mutual transfer partner(s)</div>`;
+      html += '<div class="results-grid">';
+      result.data.forEach(match => {
+        html += renderResultCard(match);
+      });
+      html += '</div>';
+      container.innerHTML = html;
+    }
+  } catch (err) {
+    container.innerHTML = '<div class="alert alert-error">Network error. Please check your connection.</div>';
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg> Search';
+}
+
+function clearSearch() {
+  document.getElementById('searchCurrent').value = '';
+  document.getElementById('searchRequired').value = '';
+  document.getElementById('searchDesignation').value = '';
+  document.getElementById('searchResults').innerHTML = '';
+}
+
+function renderResultCard(item) {
+  const initials = item.name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+  const badgeClass = item.designation === 'GDS' ? 'badge-gds' : 'badge-dept';
+
+  return `
+    <div class="result-card">
+      <div class="result-header">
+        <div class="result-avatar">${initials}</div>
+        <div>
+          <div class="result-name">${escapeHtml(item.name)}</div>
+          <div class="result-meta">
+            <span class="badge ${badgeClass}">${item.designation}</span>
+            <span style="margin-left:8px;">${escapeHtml(item.empId)}</span>
+          </div>
+        </div>
+      </div>
+      <div class="result-row">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span class="label">From:</span>
+        <span class="value">${escapeHtml(item.currentDistrict)}</span>
+      </div>
+      <div class="result-row">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span class="label">To:</span>
+        <span class="value">${escapeHtml(item.requiredDistrict)}</span>
+      </div>
+      <div class="result-row">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span class="label">Expires in:</span>
+        <span class="value">${item.daysLeft} days</span>
+      </div>
+      <div class="contact-reveal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--text-muted);"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="contact-masked" id="phone-${item.id}">${item.phoneMasked}</span>
+        <button class="eye-btn" onclick="requestReveal('${item.id}', '${item.phone}')" title="Show contact number" aria-label="Show contact number">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+// ========== CONTACT REVEAL ==========
+function requestReveal(id, phone) {
+  currentRevealId = id;
+  currentRevealPhone = phone;
+  if (acceptedDisclaimer) {
+    revealPhone(id, phone);
+  } else {
+    document.getElementById('disclaimerModal').classList.add('active');
+  }
+}
+let currentRevealPhone = null;
+function acceptDisclaimer() {
+  acceptedDisclaimer = true;
+  closeDisclaimer();
+  if (currentRevealId && currentRevealPhone) revealPhone(currentRevealId, currentRevealPhone);
+}
+function closeDisclaimer() {
+  document.getElementById('disclaimerModal').classList.remove('active');
+  currentRevealId = null;
+  currentRevealPhone = null;
+}
+function revealPhone(id, phone) {
+  const el = document.getElementById(`phone-${id}`);
+  if (el) {
+    el.textContent = phone;
+    el.classList.remove('contact-masked');
+    el.classList.add('contact-full');
+    const btn = el.nextElementSibling;
+    if (btn) {
+      btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
+      btn.style.color = 'var(--success)';
+      btn.style.borderColor = 'var(--success)';
+      btn.style.background = 'var(--success-soft)';
+      btn.onclick = null;
+      btn.title = 'Contact revealed';
+    }
+  }
+}
+
+// ========== LISTINGS TABLE ==========
+async function renderListings() {
+  const container = document.getElementById('listingsTable');
+  container.innerHTML = '<div class="empty-state"><div class="loading-spinner" style="width:32px;height:32px;margin:0 auto 16px;"></div><p>Loading listings...</p></div>';
+
+  try {
+    const result = await apiGet('/api/listings');
+    if (!result.success) {
+      container.innerHTML = '<div class="alert alert-error">Failed to load listings.</div>';
+      return;
+    }
+
+    const data = result.data;
+    if (data.length === 0) {
+      container.innerHTML = `
+        <div class="empty-state">
+          <div class="empty-state-icon">📋</div>
+          <h3>No active listings</h3>
+          <p>Be the first to register your transfer request.</p>
+        </div>`;
+      return;
+    }
+
+    let html = `
+      <div style="overflow-x:auto;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Employee ID</th>
+            <th>Designation</th>
+            <th>Current District</th>
+            <th>Required District</th>
+            <th>Days Left</th>
+          </tr>
+        </thead>
+        <tbody>
+    `;
+    data.forEach(item => {
+      const badgeClass = item.designation === 'GDS' ? 'badge-gds' : 'badge-dept';
+      html += `
+        <tr>
+          <td class="name-cell">${escapeHtml(item.name)}</td>
+          <td>${escapeHtml(item.empId)}</td>
+          <td><span class="badge ${badgeClass}">${item.designation}</span></td>
+          <td>${escapeHtml(item.currentDistrict)}</td>
+          <td>${escapeHtml(item.requiredDistrict)}</td>
+          <td>${item.daysLeft} days</td>
+        </tr>
+      `;
+    });
+    html += '</tbody></table></div>';
+    container.innerHTML = html;
+  } catch (err) {
+    container.innerHTML = '<div class="alert alert-error">Network error. Could not load listings.</div>';
+  }
+}
+
+// ========== STATS ==========
+async function updateStats() {
+  try {
+    const result = await apiGet('/api/stats');
+    if (result.success) {
+      document.getElementById('statTotal').textContent = result.data.total;
+      document.getElementById('statMatches').textContent = result.data.matches;
+      document.getElementById('statDistricts').textContent = result.data.districts;
+    }
+  } catch (err) {
+    console.log('Stats fetch failed');
+  }
+}
+
+// ========== ADMIN ==========
+async function clearAllData() {
+  if (!confirm('Are you sure you want to delete ALL registered data? This cannot be undone.')) return;
+  try {
+    const result = await apiDelete('/api/clear');
+    if (result.success) {
+      alert(result.message);
+      renderListings();
+      updateStats();
+    } else {
+      alert('Error: ' + result.message);
+    }
+  } catch (err) {
+    alert('Network error. Could not clear data.');
+  }
+}
+
+// ========== UTILS ==========
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+function capitalize(str) {
+  return str.replace(/\b\w/g, c => c.toUpperCase());
+}
+
+// Close modal on overlay click
+document.getElementById('disclaimerModal').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('disclaimerModal')) closeDisclaimer();
+});
+</script>
+
+</body>
+</html>
