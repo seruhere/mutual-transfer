@@ -2,30 +2,38 @@ const express = require('express');
 const router = express.Router();
 const Employee = require('../models/Employee');
 
-// @route   POST /api/register
-// @desc    Register a new employee for mutual transfer
-// @access  Public
+// Debug: log all requests
+router.use((req, res, next) => {
+  console.log(`[${new Date().toISOString()}] ${req.method} ${req.path}`, req.body || req.query);
+  next();
+});
+
+// Health check
+router.get('/health', (req, res) => {
+  res.json({ success: true, message: 'API routes loaded' });
+});
+
+// Register
 router.post('/register', async (req, res) => {
   try {
+    console.log('REGISTER body:', req.body);
     const { name, empId, designation, phone, currentDistrict, requiredDistrict } = req.body;
 
-    // Validation
     if (!name || !empId || !designation || !phone || !currentDistrict || !requiredDistrict) {
       return res.status(400).json({ success: false, message: 'All fields are required' });
     }
 
     if (!/^\d{10}$/.test(phone)) {
-      return res.status(400).json({ success: false, message: 'Please enter a valid 10-digit mobile number' });
+      return res.status(400).json({ success: false, message: 'Invalid phone number' });
     }
 
     if (currentDistrict.trim().toLowerCase() === requiredDistrict.trim().toLowerCase()) {
-      return res.status(400).json({ success: false, message: 'Current and required districts cannot be the same' });
+      return res.status(400).json({ success: false, message: 'Districts cannot be same' });
     }
 
-    // Check for duplicate Employee ID
     const existing = await Employee.findOne({ empId: empId.trim().toUpperCase() });
     if (existing) {
-      return res.status(409).json({ success: false, message: 'An entry with this Employee ID already exists. Duplicate entries are not allowed.' });
+      return res.status(409).json({ success: false, message: 'Employee ID already exists' });
     }
 
     const employee = new Employee({
@@ -38,36 +46,30 @@ router.post('/register', async (req, res) => {
     });
 
     await employee.save();
+    console.log('REGISTER success:', employee.empId);
 
     res.status(201).json({
       success: true,
-      message: 'Registration successful! Your listing will be active for 90 days.',
-      data: {
-        id: employee._id,
-        name: employee.name,
-        empId: employee.empId,
-        expiresAt: employee.expiresAt
-      }
+      message: 'Registration successful!',
+      data: { id: employee._id, name: employee.name, empId: employee.empId }
     });
 
   } catch (error) {
-    console.error('Registration error:', error);
-    res.status(500).json({ success: false, message: 'Server error. Please try again later.' });
+    console.error('REGISTER ERROR:', error);
+    res.status(500).json({ success: false, message: error.message });
   }
 });
 
-// @route   GET /api/search
-// @desc    Search for mutual transfer partners
-// @access  Public
+// Search
 router.get('/search', async (req, res) => {
   try {
+    console.log('SEARCH query:', req.query);
     const { current, required, designation } = req.query;
 
     if (!current || !required) {
-      return res.status(400).json({ success: false, message: 'Both current and required districts are required' });
+      return res.status(400).json({ success: false, message: 'Both districts required' });
     }
 
-    // Build query: find people whose current = your required AND whose required = your current
     const query = {
       currentDistrict: { $regex: new RegExp('^' + required.trim() + '$', 'i') },
       requiredDistrict: { $regex: new RegExp('^' + current.trim() + '$', 'i') }
@@ -77,11 +79,10 @@ router.get('/search', async (req, res) => {
       query.designation = designation;
     }
 
-    const matches = await Employee.find(query)
-      .select('-__v')
-      .sort({ registeredAt: -1 });
+    console.log('SEARCH query built:', JSON.stringify(query));
+    const matches = await Employee.find(query).sort({ registeredAt: -1 });
+    console.log('SEARCH found:', matches.length, 'matches');
 
-    // Mask phone numbers (only last 4 digits visible)
     const maskedMatches = matches.map(m => ({
       id: m._id,
       name: m.name,
@@ -91,31 +92,23 @@ router.get('/search', async (req, res) => {
       phoneMasked: 'XXXXXX' + m.phone.slice(-4),
       currentDistrict: m.currentDistrict,
       requiredDistrict: m.requiredDistrict,
-      registeredAt: m.registeredAt,
-      expiresAt: m.expiresAt,
       daysLeft: Math.max(0, Math.ceil((m.expiresAt - Date.now()) / (1000 * 60 * 60 * 24)))
     }));
 
-    res.json({
-      success: true,
-      count: maskedMatches.length,
-      data: maskedMatches
-    });
+    res.json({ success: true, count: maskedMatches.length, data: maskedMatches });
 
   } catch (error) {
-    console.error('Search error:', error);
-    res.status(500).json({ success: false, message: 'Server error' });
+    console.error('SEARCH ERROR:', error);
+    res.status(500).json({ success: false, message: error.message });
   }
 });
 
-// @route   GET /api/listings
-// @desc    Get all active listings
-// @access  Public
+// Listings
 router.get('/listings', async (req, res) => {
   try {
-    const listings = await Employee.find()
-      .select('-__v')
-      .sort({ registeredAt: -1 });
+    console.log('LISTINGS requested');
+    const listings = await Employee.find().sort({ registeredAt: -1 });
+    console.log('LISTINGS found:', listings.length);
 
     const formatted = listings.map(item => ({
       id: item._id,
@@ -124,31 +117,28 @@ router.get('/listings', async (req, res) => {
       designation: item.designation,
       currentDistrict: item.currentDistrict,
       requiredDistrict: item.requiredDistrict,
-      registeredAt: item.registeredAt,
       daysLeft: Math.max(0, Math.ceil((item.expiresAt - Date.now()) / (1000 * 60 * 60 * 24)))
     }));
 
     res.json({ success: true, count: formatted.length, data: formatted });
 
   } catch (error) {
-    console.error('Listings error:', error);
-    res.status(500).json({ success: false, message: 'Server error' });
+    console.error('LISTINGS ERROR:', error);
+    res.status(500).json({ success: false, message: error.message });
   }
 });
 
-// @route   GET /api/stats
-// @desc    Get platform statistics
-// @access  Public
+// Stats
 router.get('/stats', async (req, res) => {
   try {
+    console.log('STATS requested');
     const total = await Employee.countDocuments();
+    console.log('STATS total:', total);
 
-    // Count unique districts
     const currentDistricts = await Employee.distinct('currentDistrict');
     const requiredDistricts = await Employee.distinct('requiredDistrict');
     const allDistricts = new Set([...currentDistricts, ...requiredDistricts].map(d => d.toLowerCase()));
 
-    // Count mutual matches (pairs)
     const all = await Employee.find().select('currentDistrict requiredDistrict');
     let matchCount = 0;
     const seen = new Set();
@@ -168,45 +158,24 @@ router.get('/stats', async (req, res) => {
       }
     }
 
-    res.json({
-      success: true,
-      data: {
-        total,
-        matches: matchCount,
-        districts: allDistricts.size
-      }
-    });
+    console.log('STATS response:', { total, matches: matchCount, districts: allDistricts.size });
+    res.json({ success: true, data: { total, matches: matchCount, districts: allDistricts.size } });
 
   } catch (error) {
-    console.error('Stats error:', error);
-    res.status(500).json({ success: false, message: 'Server error' });
+    console.error('STATS ERROR:', error);
+    res.status(500).json({ success: false, message: error.message });
   }
 });
 
-// @route   DELETE /api/listings/:id
-// @desc    Delete a specific listing
-// @access  Public (in production, add auth)
-router.delete('/listings/:id', async (req, res) => {
-  try {
-    const result = await Employee.findByIdAndDelete(req.params.id);
-    if (!result) {
-      return res.status(404).json({ success: false, message: 'Listing not found' });
-    }
-    res.json({ success: true, message: 'Listing deleted successfully' });
-  } catch (error) {
-    res.status(500).json({ success: false, message: 'Server error' });
-  }
-});
-
-// @route   DELETE /api/clear
-// @desc    Clear all data (admin use)
-// @access  Public (in production, add admin auth)
+// Clear all
 router.delete('/clear', async (req, res) => {
   try {
+    console.log('CLEAR requested');
     await Employee.deleteMany({});
-    res.json({ success: true, message: 'All data cleared successfully' });
+    res.json({ success: true, message: 'All data cleared' });
   } catch (error) {
-    res.status(500).json({ success: false, message: 'Server error' });
+    console.error('CLEAR ERROR:', error);
+    res.status(500).json({ success: false, message: error.message });
   }
 });
 
