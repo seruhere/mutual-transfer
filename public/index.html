@@ -284,6 +284,7 @@ footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--bor
       <button class="nav-btn" onclick="showSection('register')" data-nav="register">Register</button>
       <button class="nav-btn" onclick="showSection('search')" data-nav="search">Find Partner</button>
       <button class="nav-btn" onclick="showSection('listings')" data-nav="listings">All Listings</button>
+      <button class="nav-btn" onclick="showSection('feedback')" data-nav="feedback">Feedback</button>
     </nav>
     <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" id="themeBtn">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
@@ -387,7 +388,7 @@ footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--bor
           <option value="Nagpur"><option value="Patna"><option value="Pune">
           <option value="Raipur"><option value="Ranchi"><option value="Shimla">
           <option value="Surat"><option value="Thiruvananthapuram"><option value="Vadodara">
-          <option value="Varanasi"><option value="Visakhapatnam">
+          <option value="Varanasi"><option value="Visakhapatnam"> 
         </datalist>
         <div style="margin-top:24px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
           <button type="submit" class="btn btn-primary" id="regSubmitBtn">
@@ -450,6 +451,113 @@ footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--bor
       <div id="listingsTable"></div>
     </div>
   </section>
+
+  <section id="feedback" class="feedback-tab active">
+  <div class="feedback-box">
+    <h3>Submit Feedback</h3>
+    <a href="https://forms.google.com" target="_blank" class="btn-action feedback-link">
+      <span>Fill out Google Form</span>
+    </a>
+  </div>
+
+  <div class="feedback-box">
+    <h3>Contact via Signal</h3>
+    <a href="https://signal.me/#p/+916294111274" target="_blank" class="btn-action signal-link">
+      <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/signal-app-icon.png" alt="Signal" class="signal-icon">
+      <span>Chat on Signal</span>
+    </a>
+  </div>
+</section>
+
+<style>
+  /* Parent Container: Forces horizontal alignment */
+#feedback.feedback-tab {
+  display: flex !important;
+  flex-direction: row !important; /* Forces side-by-side layout */
+  justify-content: center;        /* Centers both boxes horizontally */
+  align-items: center;            /* Centers both boxes vertically */
+  gap: 24px;                      /* Space between the two boxes */
+  padding: 40px 16px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Individual Boxes */
+.feedback-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  
+  width: 280px;                   /* Fixed uniform width for side-by-side layout */
+  min-height: 180px;              /* Equal height */
+  padding: 24px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+/* Headings */
+.feedback-box h3 {
+  margin: 0 0 16px 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* Buttons / Links */
+.feedback-link,
+.signal-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 44px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #ffffff;
+  box-sizing: border-box;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.feedback-link {
+  background-color: #2563eb;
+}
+
+.signal-link {
+  background-color: #2c6bed;
+}
+
+.signal-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.feedback-link:hover,
+.signal-link:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .feedback-box {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+  }
+
+  .feedback-box h3 {
+    color: #f8fafc;
+  }
+}
+</style>
+
 
 </main>
 
