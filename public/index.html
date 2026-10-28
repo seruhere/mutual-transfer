@@ -1,948 +1,2389 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mutual Transfer Partner - India Govt Jobs</title>
-<style>
-/* ========== CSS VARIABLES & THEME ========== */
-:root {
-  --bg: #f8f9fa;
-  --surface: #ffffff;
-  --surface-2: #f1f3f5;
-  --text: #1a1a2e;
-  --text-secondary: #5a5a6e;
-  --text-muted: #8a8a9e;
-  --border: #e2e4e8;
-  --primary: #1a1a2e;
-  --primary-text: #ffffff;
-  --accent: #2563eb;
-  --accent-soft: #dbeafe;
-  --danger: #dc2626;
-  --danger-soft: #fee2e2;
-  --success: #16a34a;
-  --success-soft: #dcfce7;
-  --warning: #d97706;
-  --warning-soft: #fef3c7;
-  --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05);
-  --shadow-lg: 0 4px 6px rgba(0,0,0,0.05), 0 10px 25px rgba(0,0,0,0.08);
-  --radius: 12px;
-  --radius-sm: 8px;
-  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MutualTransfer.in – Indian Govt Jobs Mutual Transfer Portal</title>
+  <meta name="description" content="Find your mutual transfer partner across India. Register your government job posting and connect securely with colleagues across all districts.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ========== PRO MAX DESIGN SYSTEM ========== */
+    :root {
+      --bg: #f8fafc;
+      --bg-alt: #f1f5f9;
+      --surface: rgba(255, 255, 255, 0.88);
+      --surface-solid: #ffffff;
+      --surface-hover: #f8fafc;
+      --border: rgba(226, 232, 240, 0.9);
+      --border-focus: #3b82f6;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --text-light: #94a3b8;
+      
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --accent-soft: rgba(37, 99, 235, 0.08);
+      --accent-glow: rgba(37, 99, 235, 0.25);
+      
+      --success: #10b981;
+      --success-soft: rgba(16, 185, 129, 0.1);
+      --warning: #f59e0b;
+      --warning-soft: rgba(245, 158, 11, 0.1);
+      --danger: #ef4444;
+      --danger-soft: rgba(239, 68, 68, 0.1);
+      
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 12px 28px -4px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+      --shadow-glow: 0 0 20px rgba(37, 99, 235, 0.2);
+      
+      --radius-sm: 8px;
+      --radius: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      
+      --font: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
-[data-theme="dark"] {
-  --bg: #0f1117;
-  --surface: #1a1d26;
-  --surface-2: #22262f;
-  --text: #e8e8ef;
-  --text-secondary: #a0a0b0;
-  --text-muted: #6a6a7e;
-  --border: #2a2d38;
-  --primary: #e8e8ef;
-  --primary-text: #0f1117;
-  --accent: #3b82f6;
-  --accent-soft: rgba(59,130,246,0.15);
-  --danger: #ef4444;
-  --danger-soft: rgba(239,68,68,0.15);
-  --success: #22c55e;
-  --success-soft: rgba(34,197,94,0.15);
-  --warning: #f59e0b;
-  --warning-soft: rgba(245,158,11,0.15);
-  --shadow: 0 1px 3px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.2);
-  --shadow-lg: 0 4px 6px rgba(0,0,0,0.3), 0 10px 25px rgba(0,0,0,0.25);
-}
+    [data-theme="dark"] {
+      --bg: #090d16;
+      --bg-alt: #0f1626;
+      --surface: rgba(18, 26, 43, 0.82);
+      --surface-solid: #121a2b;
+      --surface-hover: #172136;
+      --border: rgba(36, 50, 78, 0.7);
+      --border-focus: #60a5fa;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-light: #64748b;
+      
+      --accent: #3b82f6;
+      --accent-hover: #60a5fa;
+      --accent-soft: rgba(59, 130, 246, 0.16);
+      --accent-glow: rgba(59, 130, 246, 0.3);
+      
+      --success: #34d399;
+      --success-soft: rgba(52, 211, 153, 0.16);
+      --warning: #fbbf24;
+      --warning-soft: rgba(251, 191, 36, 0.16);
+      --danger: #f87171;
+      --danger-soft: rgba(248, 113, 113, 0.16);
+      
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.35);
+      --shadow-lg: 0 16px 32px -4px rgba(0, 0, 0, 0.5);
+      --shadow-glow: 0 0 24px rgba(59, 130, 246, 0.3);
+    }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: var(--font);
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  min-height: 100vh;
-  transition: var(--transition);
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-header {
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  position: sticky; top: 0; z-index: 100;
-  backdrop-filter: blur(12px);
-  transition: var(--transition);
-}
-.header-inner {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 16px 0;
-}
-.logo {
-  display: flex; align-items: center; gap: 12px;
-  font-size: 20px; font-weight: 700; color: var(--text);
-  text-decoration: none;
-}
-.logo-icon {
-  width: 40px; height: 40px; background: var(--accent);
-  border-radius: 10px; display: flex; align-items: center; justify-content: center;
-  color: white; font-size: 20px;
-}
-.nav-links { display: flex; gap: 8px; align-items: center; }
-.nav-btn {
-  padding: 8px 16px; border-radius: var(--radius-sm);
-  border: none; background: transparent; color: var(--text-secondary);
-  font-size: 14px; font-weight: 500; cursor: pointer;
-  transition: var(--transition); font-family: inherit;
-}
-.nav-btn:hover, .nav-btn.active {
-  background: var(--surface-2); color: var(--text);
-}
-.theme-toggle {
-  width: 40px; height: 40px; border-radius: 10px;
-  border: 1px solid var(--border); background: var(--surface);
-  color: var(--text-secondary); cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: var(--transition);
-}
-.theme-toggle:hover { background: var(--surface-2); color: var(--text); }
+    body {
+      font-family: var(--font);
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.3s var(--ease), color 0.3s var(--ease);
+      overflow-x: hidden;
+      background-image: radial-gradient(circle at 10% 20%, var(--accent-soft) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, var(--accent-soft) 0%, transparent 40%);
+      background-attachment: fixed;
+    }
 
-.hero { padding: 60px 0 40px; text-align: center; }
-.hero h1 { font-size: 42px; font-weight: 700; line-height: 1.15; margin-bottom: 16px; letter-spacing: -0.5px; }
-.hero p { font-size: 18px; color: var(--text-secondary); max-width: 560px; margin: 0 auto 32px; }
-.stats-bar { display: flex; justify-content: center; gap: 48px; margin-top: 32px; }
-.stat-item { text-align: center; }
-.stat-num { font-size: 32px; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
-.stat-label { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-.card {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--radius); padding: 32px; margin-bottom: 24px;
-  box-shadow: var(--shadow); transition: var(--transition);
-}
-.card:hover { box-shadow: var(--shadow-lg); }
-.card-title { font-size: 20px; font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
-.card-subtitle { font-size: 14px; color: var(--text-secondary); margin-bottom: 24px; }
+    /* ========== NAVBAR (GLASSMORPHIC) ========== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--surface);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s var(--ease);
+    }
 
-.form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-.form-group { display: flex; flex-direction: column; gap: 6px; }
-.form-group.full { grid-column: 1 / -1; }
-label { font-size: 13px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.4px; }
-input, select, textarea {
-  padding: 12px 14px; border: 1.5px solid var(--border); border-radius: var(--radius-sm);
-  background: var(--bg); color: var(--text); font-size: 15px; font-family: inherit;
-  transition: var(--transition);
-}
-input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
-input::placeholder { color: var(--text-muted); }
-select { cursor: pointer; appearance: none; }
-.select-wrap { position: relative; }
-.select-wrap::after { content: "▼"; position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 10px; color: var(--text-muted); pointer-events: none; }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      gap: 16px;
+    }
 
-.btn {
-  padding: 12px 24px; border-radius: var(--radius-sm); border: none;
-  font-size: 15px; font-weight: 600; font-family: inherit; cursor: pointer;
-  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  transition: var(--transition);
-}
-.btn-primary { background: var(--primary); color: var(--primary-text); }
-.btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
-.btn-accent { background: var(--accent); color: white; }
-.btn-accent:hover { opacity: 0.9; transform: translateY(-1px); }
-.btn-ghost { background: var(--surface-2); color: var(--text); border: 1px solid var(--border); }
-.btn-ghost:hover { background: var(--border); }
-.btn-danger { background: var(--danger-soft); color: var(--danger); }
-.btn-danger:hover { background: var(--danger); color: white; }
-.btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      cursor: pointer;
+      user-select: none;
+    }
 
-.search-box { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
-.search-box input, .search-box select { flex: 1; min-width: 200px; }
+    .logo-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), #1d4ed8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      box-shadow: 0 4px 12px var(--accent-glow);
+      transition: transform 0.4s var(--ease);
+    }
 
-.results-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
-.result-card {
-  background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-sm);
-  padding: 20px; transition: var(--transition); position: relative;
-}
-.result-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-.result-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
-.result-avatar {
-  width: 44px; height: 44px; border-radius: 50%; background: var(--accent-soft);
-  color: var(--accent); display: flex; align-items: center; justify-content: center;
-  font-size: 18px; font-weight: 600; flex-shrink: 0;
-}
-.result-name { font-weight: 600; font-size: 16px; }
-.result-meta { font-size: 13px; color: var(--text-muted); }
-.result-row { display: flex; align-items: center; gap: 8px; padding: 6px 0; font-size: 14px; color: var(--text-secondary); }
-.result-row svg { flex-shrink: 0; color: var(--text-muted); }
-.result-row .label { color: var(--text-muted); min-width: 80px; }
-.result-row .value { color: var(--text); font-weight: 500; }
+    .brand-logo:hover .logo-badge {
+      transform: rotate(180deg) scale(1.05);
+    }
 
-.contact-reveal {
-  display: flex; align-items: center; gap: 10px;
-  margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);
-}
-.contact-masked { font-family: monospace; font-size: 15px; letter-spacing: 1px; color: var(--text-secondary); }
-.contact-full { font-family: monospace; font-size: 15px; letter-spacing: 1px; color: var(--success); font-weight: 600; }
-.eye-btn {
-  width: 36px; height: 36px; border-radius: 8px; border: 1px solid var(--border);
-  background: var(--surface); color: var(--text-muted); cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: var(--transition);
-}
-.eye-btn:hover { background: var(--accent-soft); color: var(--accent); border-color: var(--accent); }
+    .logo-text {
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+    }
 
-.modal-overlay {
-  position: fixed; inset: 0; background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(4px); z-index: 1000;
-  display: flex; align-items: center; justify-content: center;
-  padding: 20px; opacity: 0; visibility: hidden;
-  transition: opacity 0.3s, visibility 0.3s;
-}
-.modal-overlay.active { opacity: 1; visibility: visible; }
-.modal {
-  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-  max-width: 480px; width: 100%; padding: 28px; box-shadow: var(--shadow-lg);
-  transform: scale(0.95); transition: transform 0.3s;
-}
-.modal-overlay.active .modal { transform: scale(1); }
-.modal-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
-.modal-header svg { color: var(--warning); flex-shrink: 0; }
-.modal-title { font-size: 18px; font-weight: 600; }
-.modal-body { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px; }
-.modal-body ul { margin: 10px 0 10px 20px; }
-.modal-body li { margin: 4px 0; }
-.modal-footer { display: flex; gap: 10px; justify-content: flex-end; }
+    .logo-text .dot-in {
+      color: var(--accent);
+      background: linear-gradient(135deg, var(--accent), #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-.empty-state { text-align: center; padding: 60px 20px; }
-.empty-state-icon {
-  width: 64px; height: 64px; margin: 0 auto 20px;
-  background: var(--surface-2); border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 28px; color: var(--text-muted);
-}
-.empty-state h3 { font-size: 18px; margin-bottom: 8px; }
-.empty-state p { color: var(--text-muted); font-size: 14px; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--bg-alt);
+      padding: 4px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border);
+    }
 
-.alert {
-  padding: 14px 18px; border-radius: var(--radius-sm); font-size: 14px;
-  margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
-  animation: slideIn 0.3s ease;
-}
-@keyframes slideIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-.alert-success { background: var(--success-soft); color: var(--success); border: 1px solid var(--success); }
-.alert-error { background: var(--danger-soft); color: var(--danger); border: 1px solid var(--danger); }
-.alert-warning { background: var(--warning-soft); color: var(--warning); border: 1px solid var(--warning); }
+    .nav-btn {
+      background: transparent;
+      border: none;
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s var(--ease);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
 
-.data-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-.data-table th, .data-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); }
-.data-table th { font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; background: var(--surface-2); }
-.data-table tr:hover td { background: var(--surface-2); }
-.data-table td { color: var(--text-secondary); }
-.data-table .name-cell { font-weight: 500; color: var(--text); }
+    .nav-btn:hover {
+      color: var(--text-main);
+    }
 
-.section { display: none; animation: fadeIn 0.4s ease; }
-.section.active { display: block; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .nav-btn.active {
+      background: var(--surface-solid);
+      color: var(--accent);
+      box-shadow: var(--shadow-sm);
+    }
 
-footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--border); margin-top: 40px; color: var(--text-muted); font-size: 13px; }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-.badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
-.badge-gds { background: var(--accent-soft); color: var(--accent); }
-.badge-dept { background: var(--success-soft); color: var(--success); }
+    .theme-toggle-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--surface-solid);
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s var(--ease);
+      box-shadow: var(--shadow-sm);
+    }
 
-.loading-spinner {
-  width: 18px; height: 18px; border: 2px solid var(--border);
-  border-top-color: var(--accent); border-radius: 50%;
-  animation: spin 0.8s linear infinite; display: inline-block;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
+    .theme-toggle-btn:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      transform: rotate(20deg);
+    }
 
-@media (max-width: 640px) {
-  .hero h1 { font-size: 28px; }
-  .hero p { font-size: 16px; }
-  .stats-bar { gap: 24px; }
-  .stat-num { font-size: 24px; }
-  .card { padding: 20px; }
-  .form-grid { grid-template-columns: 1fr; }
-  .search-box { flex-direction: column; }
-  .search-box input, .search-box select { width: 100%; }
-  .results-grid { grid-template-columns: 1fr; }
-  .header-inner { flex-wrap: wrap; gap: 12px; }
-  .nav-links { order: 3; width: 100%; justify-content: center; }
-}
-</style>
+    /* ========== ANIMATIONS & SECTIONS ========== */
+    .section {
+      display: none;
+      padding: 40px 0 60px;
+      animation: fadeInUp 0.4s var(--ease) forwards;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ========== HERO WITH DYNAMIC SWAP VISUAL & MOTION AI ========== */
+    .hero {
+      text-align: center;
+      padding: 44px 0 36px;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+    }
+
+    .hero > *:not(.ai-hero-canvas) {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Motion AI Interactive Neural Canvas */
+    .ai-hero-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: auto;
+      border-radius: var(--radius-lg);
+    }
+
+    /* Motion AI Badge */
+    .ai-motion-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 6px 18px 6px 12px;
+      border-radius: var(--radius-full);
+      background: var(--surface);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(37, 99, 235, 0.12);
+      margin-bottom: 20px;
+      user-select: none;
+      transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    }
+
+    .ai-motion-badge:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px var(--accent-glow);
+    }
+
+    .ai-motion-core {
+      position: relative;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ai-core-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1.5px dashed var(--accent);
+      box-sizing: border-box;
+    }
+
+    .ai-core-ring.ring-1 {
+      width: 28px;
+      height: 28px;
+      opacity: 0.6;
+      animation: aiSpinRing 8s linear infinite;
+    }
+
+    .ai-core-ring.ring-2 {
+      width: 20px;
+      height: 20px;
+      border-style: dotted;
+      border-color: #06b6d4;
+      opacity: 0.8;
+      animation: aiSpinRing 4s linear infinite reverse;
+    }
+
+    .ai-core-nucleus {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #38bdf8, var(--accent));
+      box-shadow: 0 0 10px var(--accent);
+      animation: aiCorePulse 2s ease-in-out infinite alternate;
+    }
+
+    .ai-motion-info {
+      text-align: left;
+      line-height: 1.25;
+    }
+
+    .ai-motion-title {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: -0.01em;
+    }
+
+    .ai-pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+      animation: pulse 1.8s infinite;
+    }
+
+    .ai-motion-desc {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    @keyframes aiSpinRing {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes aiCorePulse {
+      0% { transform: scale(0.85); box-shadow: 0 0 4px var(--accent); }
+      100% { transform: scale(1.15); box-shadow: 0 0 14px #38bdf8; }
+    }
+
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      background: var(--accent-soft);
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      letter-spacing: 0.01em;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 0 var(--accent);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(37, 99, 235, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+    }
+
+    .hero-title {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      color: var(--text-main);
+    }
+
+    .text-gradient {
+      background: linear-gradient(135deg, var(--accent) 0%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 620px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+
+    /* Hero Swap Interactive Micro-Animation */
+    .swap-visual-container {
+      margin: 0 auto 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      position: relative;
+      max-width: 520px;
+    }
+
+    .swap-chip {
+      background: var(--surface-solid);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 20px;
+      text-align: left;
+      box-shadow: var(--shadow);
+      flex: 1;
+      position: relative;
+      transition: all 0.3s var(--ease);
+    }
+
+    .swap-chip.chip-a {
+      animation: floatA 4s ease-in-out infinite alternate;
+    }
+
+    .swap-chip.chip-b {
+      border-color: rgba(37, 99, 235, 0.4);
+      animation: floatB 4s ease-in-out infinite alternate;
+    }
+
+    .swap-chip-meta {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .swap-chip-location {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .swap-chip-sub {
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .swap-center-arrow {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px var(--accent-glow);
+      z-index: 2;
+      animation: rotateIcon 4s ease-in-out infinite alternate;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .swap-arrow-ai-glow {
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(6, 182, 212, 0.5);
+      animation: aiRingPulse 2.5s ease-out infinite;
+      pointer-events: none;
+    }
+
+    /* Synaptic Laser Flow Between Transfer Cards */
+    .swap-ai-laser-track {
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent);
+      z-index: 1;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .swap-ai-laser-pulse {
+      position: absolute;
+      width: 30px;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, #38bdf8, #a855f7, transparent);
+      box-shadow: 0 0 10px #38bdf8;
+      animation: aiLaserPulse 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes aiLaserPulse {
+      0% { left: 0%; opacity: 0.2; }
+      50% { opacity: 1; }
+      100% { left: calc(100% - 30px); opacity: 0.2; }
+    }
+
+    @keyframes aiRingPulse {
+      0% { transform: scale(0.9); opacity: 0.8; }
+      100% { transform: scale(1.4); opacity: 0; }
+    }
+
+    @keyframes floatA {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(10px); }
+    }
+    @keyframes floatB {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-10px); }
+    }
+    @keyframes rotateIcon {
+      0% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(1.1); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ========== BUTTONS ========== */
+    .btn {
+      padding: 12px 24px;
+      border-radius: var(--radius);
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      transition: all 0.25s var(--ease);
+      border: 1px solid transparent;
+      text-decoration: none;
+      font-family: inherit;
+    }
+
+    .btn:active {
+      transform: scale(0.97);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 4px 14px var(--accent-glow);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--accent-glow);
+    }
+
+    .btn-ghost {
+      background: var(--surface-solid);
+      border-color: var(--border);
+      color: var(--text-main);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-ghost:hover {
+      background: var(--surface-hover);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .btn-large {
+      padding: 14px 28px;
+      font-size: 16px;
+    }
+
+    /* ========== CARDS & GRIDS ========== */
+    .glass-card {
+      background: var(--surface);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow);
+      margin-bottom: 28px;
+    }
+
+    .card-title-wrap {
+      margin-bottom: 24px;
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Steps Grid */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+    .step-card {
+      background: var(--surface-solid);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s var(--ease);
+    }
+
+    .step-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent);
+    }
+
+    .step-num-watermark {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--text-muted);
+      opacity: 0.18;
+      font-family: var(--mono);
+    }
+
+    .step-icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 20px;
+    }
+
+    .step-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .step-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ========== FORMS & INPUTS ========== */
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .required-star {
+      color: var(--danger);
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px 16px;
+      background: var(--surface-solid);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+      font-size: 15px;
+      font-family: inherit;
+      transition: all 0.2s var(--ease);
+      outline: none;
+    }
+
+    input:focus, select:focus {
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 40px;
+      cursor: pointer;
+    }
+
+    select:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      background-color: var(--bg-alt);
+    }
+
+    /* Location Card Blocks inside Forms */
+    .location-box {
+      grid-column: 1 / -1;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .location-box.desired-box {
+      border-style: dashed;
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .location-box-title {
+      grid-column: 1 / -1;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .location-badge-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+    }
+
+    .location-box.desired-box .location-badge-icon {
+      background: var(--success);
+    }
+
+    .form-actions {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .privacy-notice {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ========== SEARCH RESULTS & CARDS ========== */
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .match-card {
+      background: var(--surface-solid);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+      transition: all 0.3s var(--ease);
+      animation: fadeInUp 0.35s var(--ease);
+      position: relative;
+    }
+
+    .match-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent);
+    }
+
+    .match-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .match-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), #1d4ed8);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .match-info h4 {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .badge-gds {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .badge-dept {
+      background: var(--success-soft);
+      color: var(--success);
+    }
+
+    .route-flow {
+      background: var(--bg-alt);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+
+    .route-step-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 600;
+      display: block;
+    }
+
+    .route-step-place {
+      font-weight: 700;
+      color: var(--text-main);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .route-arrow {
+      color: var(--accent);
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-reveal-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+    }
+
+    .masked-phone {
+      font-family: var(--mono);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+    }
+
+    .masked-phone.revealed {
+      color: var(--success);
+      font-weight: 700;
+    }
+
+    .btn-eye {
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 600;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s var(--ease);
+    }
+
+    .btn-eye:hover {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+    }
+
+    /* ========== TABLE VIEW (ALL LISTINGS) ========== */
+    .table-container {
+      overflow-x: auto;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--surface-solid);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    th {
+      background: var(--bg-alt);
+      padding: 14px 18px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-main);
+      white-space: nowrap;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background: var(--surface-hover);
+    }
+
+    /* ========== TOAST NOTIFICATIONS ========== */
+    #toast-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      pointer-events: none;
+    }
+
+    .toast {
+      pointer-events: auto;
+      background: var(--surface-solid);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 14px 20px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 280px;
+      max-width: 420px;
+      border-left: 4px solid var(--accent);
+      animation: slideInToast 0.3s var(--ease) forwards;
+      transition: all 0.3s var(--ease);
+    }
+
+    .toast.success { border-left-color: var(--success); }
+    .toast.error { border-left-color: var(--danger); }
+    .toast.warning { border-left-color: var(--warning); }
+
+    @keyframes slideInToast {
+      from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* ========== DISCLAIMER MODAL ========== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.25s var(--ease);
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-box {
+      background: var(--surface-solid);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 500px;
+      padding: 30px;
+      box-shadow: var(--shadow-lg);
+      transform: scale(0.95) translateY(10px);
+      transition: all 0.25s var(--ease);
+    }
+
+    .modal-overlay.active .modal-box {
+      transform: scale(1) translateY(0);
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .modal-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--warning-soft);
+      color: var(--warning);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .modal-title {
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .modal-body {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .modal-terms-list {
+      list-style: none;
+      margin: 12px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .modal-terms-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .checkbox-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 16px 0;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+
+    .checkbox-wrap input {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      margin-top: auto;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      padding: 32px 0;
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 768px) {
+      .header-inner {
+        flex-direction: column;
+        height: auto;
+        padding: 16px 0;
+      }
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        justify-content: flex-start;
+      }
+      .nav-btn {
+        padding: 6px 14px;
+        font-size: 13px;
+        white-space: nowrap;
+      }
+      .swap-visual-container {
+        flex-direction: column;
+        gap: 12px;
+      }
+      .swap-chip {
+        width: 100%;
+      }
+      .swap-center-arrow {
+        transform: rotate(90deg);
+      }
+      #toast-container {
+        left: 20px;
+        right: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  <div class="container header-inner">
-    <a href="#" class="logo" onclick="showSection('home')">
-      <div class="logo-icon">🔄</div>
-      <span>Mutual Transfer</span>
-    </a>
-    <nav class="nav-links">
-      <button class="nav-btn active" onclick="showSection('home')" data-nav="home">Home</button>
-      <button class="nav-btn" onclick="showSection('register')" data-nav="register">Register</button>
-      <button class="nav-btn" onclick="showSection('search')" data-nav="search">Find Partner</button>
-      <button class="nav-btn" onclick="showSection('listings')" data-nav="listings">All Listings</button>
-      <button class="nav-btn" onclick="showSection('feedback')" data-nav="feedback">Feedback</button>
-    </nav>
-    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" id="themeBtn">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-    </button>
-  </div>
-</header>
+  <!-- ========== NAVBAR ========== -->
+  <header>
+    <div class="container header-inner">
+      <div class="brand-logo" onclick="switchSection('home')">
+        <div class="logo-badge">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 3l4 4-4 4"></path>
+            <path d="M20 7H4"></path>
+            <path d="M8 21l-4-4 4-4"></path>
+            <path d="M4 17h16"></path>
+          </svg>
+        </div>
+        <span class="logo-text">MutualTransfer<span class="dot-in">.in</span></span>
+      </div>
 
-<main class="container">
-
-  <section id="home" class="section active">
-    <div class="hero">
-      <h1>Find Your Mutual Transfer Partner</h1>
-      <p>A secure platform for Indian government employees to find mutual transfer partners across districts. Your data stays for 90 days only.</p>
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-        <button class="btn btn-primary" onclick="showSection('register')">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-          Register Now
+      <nav class="nav-links">
+        <button class="nav-btn active" data-nav="home" onclick="switchSection('home')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          Home
         </button>
-        <button class="btn btn-ghost" onclick="showSection('search')">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          Search Partner
+        <button class="nav-btn" data-nav="register" onclick="switchSection('register')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"></path></svg>
+          Register
+        </button>
+        <button class="nav-btn" data-nav="search" onclick="switchSection('search')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          Find Partner
+        </button>
+        <button class="nav-btn" data-nav="listings" onclick="switchSection('listings')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+          All Listings
+        </button>
+        <button class="nav-btn" data-nav="feedback" onclick="switchSection('feedback')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          Feedback
+        </button>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Toggle theme">
+          <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
         </button>
       </div>
-      <div class="stats-bar">
-        <div class="stat-item"><div class="stat-num" id="statTotal">0</div><div class="stat-label">Active Listings</div></div>
-        <div class="stat-item"><div class="stat-num" id="statMatches">0</div><div class="stat-label">Matches Made</div></div>
-        <div class="stat-item"><div class="stat-num" id="statDistricts">0</div><div class="stat-label">Districts Covered</div></div>
-      </div>
     </div>
-    <div class="card">
-      <div class="card-title">How It Works</div>
-      <div class="card-subtitle">Three simple steps to find your mutual transfer partner</div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;">
-        <div style="text-align:center;padding:20px;">
-          <div style="width:56px;height:56px;background:var(--accent-soft);color:var(--accent);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;font-weight:700;">1</div>
-          <h4 style="margin-bottom:8px;">Register</h4>
-          <p style="font-size:14px;color:var(--text-secondary);">Fill in your details including current and desired transfer districts. Your listing stays active for 90 days.</p>
-        </div>
-        <div style="text-align:center;padding:20px;">
-          <div style="width:56px;height:56px;background:var(--success-soft);color:var(--success);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;font-weight:700;">2</div>
-          <h4 style="margin-bottom:8px;">Search</h4>
-          <p style="font-size:14px;color:var(--text-secondary);">Enter your current and required districts to find employees looking for a mutual swap.</p>
-        </div>
-        <div style="text-align:center;padding:20px;">
-          <div style="width:56px;height:56px;background:var(--warning-soft);color:var(--warning);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;font-weight:700;">3</div>
-          <h4 style="margin-bottom:8px;">Connect</h4>
-          <p style="font-size:14px;color:var(--text-secondary);">Accept the disclaimer to reveal contact details and coordinate your mutual transfer.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  </header>
 
-  <section id="register" class="section">
-    <div class="hero" style="padding:40px 0 20px;">
-      <h1 style="font-size:32px;">Register Your Transfer Request</h1>
-      <p>Fill in your details below. Your information will be visible for 90 days.</p>
-    </div>
-    <div class="card">
-      <div id="regAlert"></div>
-      <form id="registerForm" onsubmit="handleRegister(event)">
-        <div class="form-grid">
-          <div class="form-group">
-            <label>Full Name *</label>
-            <input type="text" id="regName" placeholder="Enter your full name" required>
+  <main class="container">
+
+    <!-- ========== SECTION: HOME ========== -->
+    <section id="home" class="section active">
+      <div class="hero">
+        <!-- Interactive Motion AI Neural Network Canvas -->
+        <canvas id="aiHeroCanvas" class="ai-hero-canvas"></canvas>
+
+        <div class="pill-badge">
+          <span class="pulse-dot"></span>
+          India Government Employees Transfer Portal
+        </div>
+
+        <!-- Motion AI Dynamic Hologram Badge -->
+        <div>
+          <div class="ai-motion-badge">
+            <div class="ai-motion-core">
+              <div class="ai-core-ring ring-1"></div>
+              <div class="ai-core-ring ring-2"></div>
+              <div class="ai-core-nucleus"></div>
+            </div>
+            <div class="ai-motion-info">
+              <span class="ai-motion-title"><span class="ai-pulse-dot"></span> AI Mutual Match Engine v2.4</span>
+              <span class="ai-motion-desc">Live Neural Cross-District Coordination</span>
+            </div>
           </div>
-          <div class="form-group">
-            <label>Employee ID *</label>
-            <input type="text" id="regEmpId" placeholder="e.g., EMP123456" required>
+        </div>
+
+        <h1 class="hero-title">Find Your Mutual<br><span class="text-gradient">Transfer Partner</span></h1>
+        <p class="hero-subtitle">
+          Connect directly with government colleagues (GDS & Departmental) looking for reciprocal transfers across all 28 states & 8 Union Territories.
+        </p>
+
+        <!-- Interactive Animated Swap Micro-Visualization with AI Synaptic Link -->
+        <div class="swap-visual-container" aria-hidden="true">
+          <div class="swap-ai-laser-track">
+            <div class="swap-ai-laser-pulse"></div>
           </div>
-          <div class="form-group">
-            <label>Designation *</label>
-            <div class="select-wrap">
+          <div class="swap-chip chip-a">
+            <div class="swap-chip-meta">You work in</div>
+            <div class="swap-chip-location" id="previewCurLoc">Patna, Bihar</div>
+            <div class="swap-chip-sub">Seeking transfer ➔</div>
+          </div>
+          <div class="swap-center-arrow">
+            <div class="swap-arrow-ai-glow"></div>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 3l4 4-4 4"></path>
+              <path d="M20 7H4"></path>
+              <path d="M8 21l-4-4 4-4"></path>
+              <path d="M4 17h16"></path>
+            </svg>
+          </div>
+          <div class="swap-chip chip-b">
+            <div class="swap-chip-meta">Partner works in</div>
+            <div class="swap-chip-location" id="previewReqLoc">Varanasi, UP</div>
+            <div class="swap-chip-sub">Seeking transfer ➔</div>
+          </div>
+        </div>
+
+        <div class="hero-buttons">
+          <button class="btn btn-primary btn-large" onclick="switchSection('register')">
+            <span>📝</span> Register Transfer Request
+          </button>
+          <button class="btn btn-ghost btn-large" onclick="switchSection('search')">
+            <span>🔍</span> Search Matching Partners
+          </button>
+        </div>
+      </div>
+
+      <!-- How it Works Step Cards -->
+      <div class="glass-card">
+        <div class="card-title-wrap">
+          <div class="card-title">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            How Mutual Transfer Works
+          </div>
+          <p class="card-subtitle">Three simple steps to coordinate your bilateral posting transfer</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-num-watermark">01</span>
+            <div class="step-icon-wrap" style="background: var(--accent-soft); color: var(--accent);">
+              ✍️
+            </div>
+            <h3>1. Register Profile</h3>
+            <p>Select your designation, current posting district, and desired district. Listings remain active for 90 days.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num-watermark">02</span>
+            <div class="step-icon-wrap" style="background: var(--success-soft); color: var(--success);">
+              🎯
+            </div>
+            <h3>2. Reciprocal Match</h3>
+            <p>Our algorithm matches you with employees seeking to transfer to your district while wanting theirs.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num-watermark">03</span>
+            <div class="step-icon-wrap" style="background: var(--warning-soft); color: var(--warning);">
+              🤝
+            </div>
+            <h3>3. Safe Connection</h3>
+            <p>Agree to the responsible use disclaimer to reveal verified contact numbers and proceed with department transfer paperwork.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION: REGISTER ========== -->
+    <section id="register" class="section">
+      <div class="glass-card">
+        <div class="card-title-wrap">
+          <div class="card-title">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><line x1="19" y1="8" x2="19" y2="14"></line><line x1="22" y1="11" x2="16" y2="11"></line></svg>
+            Register Your Transfer Request
+          </div>
+          <p class="card-subtitle">Your listing will be visible to matching transfer seekers for 90 days.</p>
+        </div>
+
+        <form id="registerForm" onsubmit="handleRegistration(event)">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="regName">Full Name <span class="required-star">*</span></label>
+              <input type="text" id="regName" placeholder="e.g. Ramesh Kumar" required>
+            </div>
+
+            <div class="form-group">
+              <label for="regEmpId">Employee ID <span class="required-star">*</span></label>
+              <input type="text" id="regEmpId" placeholder="e.g. EMP-104928" required>
+            </div>
+
+            <div class="form-group">
+              <label for="regDesignation">Designation <span class="required-star">*</span></label>
               <select id="regDesignation" required>
-                <option value="">Select designation</option>
-                <option value="GDS">GDS</option>
-                <option value="Departmental">Departmental</option>
+                <option value="">Select Designation</option>
+                <option value="GDS">GDS (Gramin Dak Sevak)</option>
+                <option value="Departmental">Departmental (Postman / MTS / PA / SA)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="regPhone">Contact Mobile Number <span class="required-star">*</span></label>
+              <input type="tel" id="regPhone" placeholder="10-digit number" pattern="[6-9][0-9]{9}" maxlength="10" required>
+            </div>
+
+            <!-- Current Location Block -->
+            <div class="location-box">
+              <div class="location-box-title">
+                <span class="location-badge-icon">📍</span>
+                Current Posting Location
+              </div>
+              <div class="form-group">
+                <label for="regCurrentState">Current State / UT <span class="required-star">*</span></label>
+                <select id="regCurrentState" required onchange="updateDistricts('regCurrentState', 'regCurrentDistrict')">
+                  <option value="">Select State</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="regCurrentDistrict">Current District <span class="required-star">*</span></label>
+                <select id="regCurrentDistrict" disabled required>
+                  <option value="">Select State first</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Desired Location Block -->
+            <div class="location-box desired-box">
+              <div class="location-box-title">
+                <span class="location-badge-icon">🎯</span>
+                Desired Transfer Destination
+              </div>
+              <div class="form-group">
+                <label for="regRequiredState">Desired State / UT <span class="required-star">*</span></label>
+                <select id="regRequiredState" required onchange="updateDistricts('regRequiredState', 'regRequiredDistrict')">
+                  <option value="">Select State</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="regRequiredDistrict">Desired District <span class="required-star">*</span></label>
+                <select id="regRequiredDistrict" disabled required>
+                  <option value="">Select State first</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary btn-large" id="btnSubmitReg">
+              <span>Submit Transfer Request</span>
+            </button>
+            <button type="reset" class="btn btn-ghost" onclick="resetRegForm()">
+              Clear
+            </button>
+          </div>
+
+          <div class="privacy-notice">
+            🔒 All listings auto-expire after 90 days. Duplicate entries per Employee ID are updated automatically.
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ========== SECTION: FIND PARTNER (SEARCH) ========== -->
+    <section id="search" class="section">
+      <div class="glass-card">
+        <div class="card-title-wrap">
+          <div class="card-title">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            Find Reciprocal Transfer Partners
+          </div>
+          <p class="card-subtitle">Select your current district and where you want to go to find exact bilateral transfer matches.</p>
+        </div>
+
+        <div class="form-grid">
+          <!-- Search From Location -->
+          <div class="location-box">
+            <div class="location-box-title">
+              <span class="location-badge-icon">📍</span>
+              Where You Are Now
+            </div>
+            <div class="form-group">
+              <label for="searchCurState">Your State / UT</label>
+              <select id="searchCurState" onchange="updateDistricts('searchCurState', 'searchCurDistrict')">
+                <option value="">Select State</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="searchCurDistrict">Your District</label>
+              <select id="searchCurDistrict" disabled>
+                <option value="">Select State first</option>
               </select>
             </div>
           </div>
-          <div class="form-group">
-            <label>Contact Number *</label>
-            <input type="tel" id="regPhone" placeholder="10-digit mobile number" pattern="[0-9]{10}" maxlength="10" required>
+
+          <!-- Search To Location -->
+          <div class="location-box desired-box">
+            <div class="location-box-title">
+              <span class="location-badge-icon">🎯</span>
+              Where You Want To Go
+            </div>
+            <div class="form-group">
+              <label for="searchReqState">Target State / UT</label>
+              <select id="searchReqState" onchange="updateDistricts('searchReqState', 'searchReqDistrict')">
+                <option value="">Select State</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="searchReqDistrict">Target District</label>
+              <select id="searchReqDistrict" disabled>
+                <option value="">Select State first</option>
+              </select>
+            </div>
           </div>
-          <div class="form-group">
-            <label>Current Working District *</label>
-            <input type="text" id="regCurrentDistrict" placeholder="e.g., Ahmedabad" required list="districtList">
-          </div>
-          <div class="form-group">
-            <label>Required Transfer District *</label>
-            <input type="text" id="regRequiredDistrict" placeholder="e.g., Surat" required list="districtList">
+
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label for="searchDesignation">Filter by Designation (Optional)</label>
+            <select id="searchDesignation" style="max-width: 320px;">
+              <option value="">All Designations</option>
+              <option value="GDS">GDS (Gramin Dak Sevak)</option>
+              <option value="Departmental">Departmental</option>
+            </select>
           </div>
         </div>
-        <datalist id="districtList">
-          <option value="Ahmedabad"><option value="Amritsar"><option value="Bangalore">
-          <option value="Bhopal"><option value="Bhubaneswar"><option value="Chandigarh">
-          <option value="Chennai"><option value="Coimbatore"><option value="Delhi">
-          <option value="Guwahati"><option value="Hyderabad"><option value="Indore">
-          <option value="Jaipur"><option value="Kanpur"><option value="Kochi">
-          <option value="Kolkata"><option value="Lucknow"><option value="Ludhiana">
-          <option value="Madurai"><option value="Mumbai"><option value="Mysore">
-          <option value="Nagpur"><option value="Patna"><option value="Pune">
-          <option value="Raipur"><option value="Ranchi"><option value="Shimla">
-          <option value="Surat"><option value="Thiruvananthapuram"><option value="Vadodara">
-          <option value="Varanasi"><option value="Visakhapatnam"> 
-        </datalist>
-        <div style="margin-top:24px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
-          <button type="submit" class="btn btn-primary" id="regSubmitBtn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-            Submit Registration
+
+        <div class="form-actions">
+          <button class="btn btn-primary" onclick="performSearch()">
+            <span>🔍 Search Matching Partners</span>
           </button>
-          <button type="reset" class="btn btn-ghost">Clear Form</button>
+          <button class="btn btn-ghost" onclick="clearSearch()">
+            Clear Filters
+          </button>
         </div>
-        <p style="margin-top:16px;font-size:13px;color:var(--text-muted);">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:4px;"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-          Your data will be automatically deleted after 90 days. Duplicate entries by Employee ID are not allowed.
-        </p>
-      </form>
-    </div>
-  </section>
 
-  <section id="search" class="section">
-    <div class="hero" style="padding:40px 0 20px;">
-      <h1 style="font-size:32px;">Find Your Mutual Partner</h1>
-      <p>Search for employees whose current district matches your required district.</p>
-    </div>
-    <div class="card">
-      <div class="card-title">Search Criteria</div>
-      <div class="card-subtitle">Enter your details to find a mutual transfer match</div>
-      <div class="search-box">
-        <input type="text" id="searchCurrent" placeholder="Your current district" list="districtList">
-        <input type="text" id="searchRequired" placeholder="Your required district" list="districtList">
-        <div class="select-wrap" style="min-width:160px;">
-          <select id="searchDesignation">
-            <option value="">Any designation</option>
-            <option value="GDS">GDS</option>
-            <option value="Departmental">Departmental</option>
-          </select>
+        <!-- Container for Search Results -->
+        <div id="searchResultsContainer"></div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION: ALL LISTINGS ========== -->
+    <section id="listings" class="section">
+      <div class="glass-card">
+        <div class="card-title-wrap" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+          <div>
+            <div class="card-title">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+              All Active Transfer Requests
+            </div>
+            <p class="card-subtitle">Browse all government employees currently open for mutual transfers</p>
+          </div>
+          <input type="text" id="tableFilterInput" placeholder="Filter by name, district or designation..." oninput="filterAllListings()" style="max-width: 300px;">
         </div>
-        <button class="btn btn-accent" onclick="performSearch()" id="searchBtn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          Search
-        </button>
-        <button class="btn btn-ghost" onclick="clearSearch()">Clear</button>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Candidate Name</th>
+                <th>Designation</th>
+                <th>Current Posting</th>
+                <th>Desired Posting</th>
+                <th>Status / Validity</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="listingsTableBody">
+              <!-- Populated via JS -->
+            </tbody>
+          </table>
+        </div>
       </div>
-      <div id="searchResults"></div>
-    </div>
-  </section>
+    </section>
 
-  <section id="listings" class="section">
-    <div class="hero" style="padding:40px 0 20px;">
-      <h1 style="font-size:32px;">All Active Listings</h1>
-      <p>Browse all registered transfer requests currently active on the platform.</p>
-    </div>
-    <div class="card">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
-        <div class="card-title" style="margin:0;">Registered Employees</div>
-        <!--
-        <button class="btn btn-danger" onclick="clearAllData()">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
-          Clear All Data
-        </button>
-        -->
+    <!-- ========== SECTION: FEEDBACK ========== -->
+    <section id="feedback" class="section">
+      <div class="glass-card" style="text-align: center; max-width: 680px; margin: 0 auto;">
+        <div class="card-title-wrap">
+          <div class="card-title" style="justify-content: center;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            Assistance & Community Feedback
+          </div>
+          <p class="card-subtitle">We are constantly improving MutualTransfer.in for government personnel.</p>
+        </div>
+
+        <div class="steps-grid" style="grid-template-columns: 1fr 1fr; margin-top: 24px;">
+          <div class="step-card">
+            <div class="step-icon-wrap" style="background: var(--accent-soft); color: var(--accent); margin: 0 auto 14px;">
+              📝
+            </div>
+            <h3>Google Feedback Form</h3>
+            <p style="margin-bottom: 16px;">Suggest a feature, district correction, or report a bug.</p>
+            <a href="https://forms.gle/oM4z1EpAGpNJvvmK8" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%;">
+              Open Form
+            </a>
+          </div>
+
+          <div class="step-card">
+            <div class="step-icon-wrap" style="background: var(--success-soft); color: var(--success); margin: 0 auto 14px;">
+              💬
+            </div>
+            <h3>Signal Direct Help</h3>
+            <p style="margin-bottom: 16px;">Direct chat assistance for portal queries and support.</p>
+            <a href="https://signal.me/#p/+916294111274" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" style="width: 100%;">
+              Chat on Signal
+            </a>
+          </div>
+        </div>
       </div>
-      <div id="listingsTable"></div>
-    </div>
-  </section>
+    </section>
 
-  <section id="feedback" class="feedback-tab active">
-  <div class="feedback-box">
-    <h3>Submit Feedback</h3>
-    <a href="https://forms.gle/oM4z1EpAGpNJvvmK8" target="_blank" class="btn-action feedback-link">
-      <span>Fill out Google Form</span>
-    </a>
-  </div>
+  </main>
 
-  <div class="feedback-box">
-    <h3>Contact via Signal</h3>
-    <a href="https://signal.me/#p/+916294111274" target="_blank" class="btn-action signal-link">
-      <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/signal-app-icon.png" alt="Signal" class="signal-icon">
-      <span>Chat on Signal</span>
-    </a>
-  </div>
-</section>
+  <!-- ========== RESPONSIBLE USE DISCLAIMER MODAL ========== -->
+  <div class="modal-overlay" id="disclaimerModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-icon">⚠️</div>
+        <div class="modal-title">Responsible Contact Agreement</div>
+      </div>
+      <div class="modal-body">
+        <p>You are requesting to view the direct personal contact number of a verified government employee.</p>
+        <ul class="modal-terms-list">
+          <li>✅ I am a government employee seeking a genuine mutual transfer.</li>
+          <li>📞 I will use this number solely for coordinating mutual transfer paperwork.</li>
+          <li>🛡️ I will never share, forward, or broadcast this contact number.</li>
+          <li>⚖️ Harassment or spam is punishable under applicable Indian IT & Service rules.</li>
+        </ul>
 
-<style>
-  /* Parent Container: Forces horizontal alignment */
-#feedback.feedback-tab {
-  display: flex !important;
-  flex-direction: row !important; /* Forces side-by-side layout */
-  justify-content: center;        /* Centers both boxes horizontally */
-  align-items: center;            /* Centers both boxes vertically */
-  gap: 24px;                      /* Space between the two boxes */
-  padding: 40px 16px;
-  min-height: 100vh;
-  box-sizing: border-box;
-}
-
-/* Individual Boxes */
-.feedback-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  text-align: center;
-  
-  width: 280px;                   /* Fixed uniform width for side-by-side layout */
-  min-height: 180px;              /* Equal height */
-  padding: 24px;
-  border-radius: 12px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  box-sizing: border-box;
-}
-
-/* Headings */
-.feedback-box h3 {
-  margin: 0 0 16px 0;
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: #1e293b;
-}
-
-/* Buttons / Links */
-.feedback-link,
-.signal-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  height: 44px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
-  color: #ffffff;
-  box-sizing: border-box;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.feedback-link {
-  background-color: #2563eb;
-}
-
-.signal-link {
-  background-color: #2c6bed;
-}
-
-.signal-icon {
-  width: 22px;
-  height: 22px;
-  object-fit: contain;
-}
-
-.feedback-link:hover,
-.signal-link:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
-}
-
-/* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
-  .feedback-box {
-    background-color: #1e293b;
-    border: 1px solid #334155;
-  }
-
-  .feedback-box h3 {
-    color: #f8fafc;
-  }
-}
-</style>
-
-
-</main>
-
-<div class="modal-overlay" id="disclaimerModal">
-  <div class="modal">
-    <div class="modal-header">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-      <div class="modal-title">Important Disclaimer</div>
-    </div>
-    <div class="modal-body">
-      <p>Before revealing the contact number, you must agree to the following terms:</p>
-      <ul>
-        <li>You will use the contact information solely for the purpose of mutual transfer coordination.</li>
-        <li>You will not share this contact number with any third party.</li>
-        <li>You will not use this number for harassment, spam, or any unlawful activity.</li>
-        <li>You will respect the privacy and consent of the matched individual.</li>
-        <li>Any misuse may lead to legal action under applicable Indian laws.</li>
-      </ul>
-      <p style="margin-top:12px;font-weight:600;color:var(--text);">By clicking "I Agree", you accept full responsibility for appropriate use of this contact information.</p>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-ghost" onclick="closeDisclaimer()">Cancel</button>
-      <button class="btn btn-accent" onclick="acceptDisclaimer()">I Agree & Reveal</button>
+        <label class="checkbox-wrap">
+          <input type="checkbox" id="modalAgreeCheckbox">
+          <span>I understand and agree to the responsible use terms</span>
+        </label>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" onclick="closeDisclaimerModal()">Cancel</button>
+        <button class="btn btn-primary" id="modalConfirmBtn" onclick="confirmRevealContact()" disabled>
+          👁️ Reveal Contact Number
+        </button>
+      </div>
     </div>
   </div>
-</div>
 
-<footer>
-  <p> Mutual Transfer Partner Finder | Made for Indian Government Employees</p>
-  <p style="margin-top:4px;">Data auto-deletes after 90 days. Use responsibly.</p>
-</footer>
+  <!-- ========== TOAST NOTIFICATION CONTAINER ========== -->
+  <div id="toast-container"></div>
 
-<script>
-// ========== CONFIG ==========
-const API_BASE = ''; // Same origin - empty means current domain
-let currentRevealId = null;
-let acceptedDisclaimer = false;
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="container footer-content">
+      <p><strong>MutualTransfer.in</strong> — Independent peer-to-peer portal for Indian Government Employees</p>
+      <p style="font-size: 13px;">Data is retained locally for 90 days. Not directly affiliated with any government department.</p>
+    </div>
+  </footer>
 
-// ========== INIT ==========
-document.addEventListener('DOMContentLoaded', () => {
-  initTheme();
-  updateStats();
-  if (document.getElementById('listings').classList.contains('active')) renderListings();
-});
+  <script>
+    // ========== COMPLETE INDIA GEO DATA (28 STATES & 8 UTs) ==========
+    const INDIA_GEO = {
+      "Andaman & Nicobar Islands": ["Nicobars", "North and Middle Andaman", "South Andaman"],
+      "Andhra Pradesh": ["Alluri Sitharama Raju", "Anakapalli", "Ananthapuramu", "Annamayya", "Bapatla", "Chittoor", "Dr. B.R. Ambedkar Konaseema", "East Godavari", "Eluru", "Guntur", "Kakinada", "Krishna", "Kurnool", "Nandyal", "NTR", "Palnadu", "Parvathipuram Manyam", "Prakasam", "Sri Potti Sriramulu Nellore", "Sri Sathya Sai", "Srikakulam", "Tirupati", "Visakhapatnam", "Vizianagaram", "West Godavari", "YSR Kadapa"],
+      "Arunachal Pradesh": ["Anjaw", "Changlang", "Dibang Valley", "East Kameng", "East Siang", "Kamle", "Kra Daadi", "Kurung Kumey", "Lepa Rada", "Lohit", "Longding", "Lower Dibang Valley", "Lower Siang", "Lower Subansiri", "Namsai", "Pakke Kessang", "Papum Pare", "Shi Yomi", "Siang", "Tawang", "Tirap", "Upper Siang", "Upper Subansiri", "West Kameng", "West Siang"],
+      "Assam": ["Bajali", "Baksa", "Barpeta", "Biswanath", "Bongaigaon", "Cachar", "Charaideo", "Chirang", "Darrang", "Dhemaji", "Dhubri", "Dibrugarh", "Dima Hasao", "Goalpara", "Golaghat", "Hailakandi", "Hojai", "Jorhat", "Kamrup", "Kamrup Metropolitan", "Karbi Anglong", "Karimganj", "Kokrajhar", "Lakhimpur", "Majuli", "Morigaon", "Nagaon", "Nalbari", "Sivasagar", "Sonitpur", "South Salmara-Mankachar", "Tamulpur", "Tinsukia", "Udalguri", "West Karbi Anglong"],
+      "Bihar": ["Araria", "Arwal", "Aurangabad", "Banka", "Begusarai", "Bhagalpur", "Bhojpur", "Buxar", "Darbhanga", "East Champaran", "Gaya", "Gopalganj", "Jamui", "Jehanabad", "Kaimur", "Katihar", "Khagaria", "Kishanganj", "Lakhisarai", "Madhepura", "Madhubani", "Munger", "Muzaffarpur", "Nalanda", "Nawada", "Patna", "Purnia", "Rohtas", "Saharsa", "Samastipur", "Saran", "Sheikhpura", "Sheohar", "Sitamarhi", "Siwan", "Supaul", "Vaishali", "West Champaran"],
+      "Chandigarh": ["Chandigarh"],
+      "Chhattisgarh": ["Balod", "Baloda Bazar", "Balrampur", "Bastar", "Bemetara", "Bijapur", "Bilaspur", "Dantewada", "Dhamtari", "Durg", "Gariaband", "Gaurela-Pendra-Marwahi", "Janjgir-Champa", "Jashpur", "Kabirdham", "Kanker", "Khairagarh", "Kondagaon", "Korba", "Koriya", "Mahasamund", "Manendragarh", "Mohla-Manpur", "Mungeli", "Narayanpur", "Raigarh", "Raipur", "Rajnandgaon", "Sakti", "Sarangarh-Bilaigarh", "Sukma", "Surajpur", "Surguja"],
+      "Dadra & Nagar Haveli and Daman & Diu": ["Dadra and Nagar Haveli", "Daman", "Diu"],
+      "Delhi": ["Central Delhi", "East Delhi", "New Delhi", "North Delhi", "North East Delhi", "North West Delhi", "Shahdara", "South Delhi", "South East Delhi", "South West Delhi", "West Delhi"],
+      "Goa": ["North Goa", "South Goa"],
+      "Gujarat": ["Ahmedabad", "Amreli", "Anand", "Aravalli", "Banaskantha", "Bharuch", "Bhavnagar", "Botad", "Chhota Udaipur", "Dahod", "Dang", "Devbhoomi Dwarka", "Gandhinagar", "Gir Somnath", "Jamnagar", "Junagadh", "Kheda", "Kutch", "Mahisagar", "Mehsana", "Morbi", "Narmada", "Navsari", "Panchmahal", "Patan", "Porbandar", "Rajkot", "Sabarkantha", "Surat", "Surendranagar", "Tapi", "Vadodara", "Valsad"],
+      "Haryana": ["Ambala", "Bhiwani", "Charkhi Dadri", "Faridabad", "Fatehabad", "Gurugram", "Hisar", "Jhajjar", "Jind", "Kaithal", "Karnal", "Kurukshetra", "Mahendragarh", "Nuh", "Palwal", "Panchkula", "Panipat", "Rewari", "Rohtak", "Sirsa", "Sonipat", "Yamunanagar"],
+      "Himachal Pradesh": ["Bilaspur", "Chamba", "Hamirpur", "Kangra", "Kinnaur", "Kullu", "Lahaul and Spiti", "Mandi", "Shimla", "Sirmaur", "Solan", "Una"],
+      "Jammu & Kashmir": ["Anantnag", "Bandipora", "Baramulla", "Budgam", "Doda", "Ganderbal", "Jammu", "Kathua", "Kishtwar", "Kulgam", "Kupwara", "Poonch", "Pulwama", "Rajouri", "Ramban", "Reasi", "Samba", "Shopian", "Srinagar", "Udhampur"],
+      "Jharkhand": ["Bokaro", "Chatra", "Deoghar", "Dhanbad", "Dumka", "East Singhbhum", "Garhwa", "Giridih", "Godda", "Gumla", "Hazaribagh", "Jamtara", "Khunti", "Koderma", "Latehar", "Lohardaga", "Pakur", "Palamu", "Ramgarh", "Ranchi", "Sahibganj", "Saraikela Kharsawan", "Simdega", "West Singhbhum"],
+      "Karnataka": ["Bagalkote", "Ballari", "Belagavi", "Bengaluru Rural", "Bengaluru Urban", "Bidar", "Chamarajanagar", "Chikkaballapura", "Chikkamagaluru", "Chitradurga", "Dakshina Kannada", "Davanagere", "Dharwad", "Gadag", "Hassan", "Haveri", "Kalaburagi", "Kodagu", "Kolar", "Koppal", "Mandya", "Mysuru", "Raichur", "Ramanagara", "Shivamogga", "Tumakuru", "Udupi", "Uttara Kannada", "Vijayanagara", "Vijayapura", "Yadgir"],
+      "Kerala": ["Alappuzha", "Ernakulam", "Idukki", "Kannur", "Kasaragod", "Kollam", "Kottayam", "Kozhikode", "Malappuram", "Palakkad", "Pathanamthitta", "Thiruvananthapuram", "Thrissur", "Wayanad"],
+      "Ladakh": ["Kargil", "Leh"],
+      "Lakshadweep": ["Lakshadweep"],
+      "Madhya Pradesh": ["Agar Malwa", "Alirajpur", "Anuppur", "Ashoknagar", "Balaghat", "Barwani", "Betul", "Bhind", "Bhopal", "Burhanpur", "Chhatarpur", "Chhindwara", "Damoh", "Datia", "Dewas", "Dhar", "Dindori", "Guna", "Gwalior", "Harda", "Hoshangabad", "Indore", "Jabalpur", "Jhabua", "Katni", "Khandwa", "Khargone", "Mandla", "Mandsaur", "Morena", "Narsinghpur", "Neemuch", "Niwari", "Panna", "Raisen", "Rajgarh", "Ratlam", "Rewa", "Sagar", "Satna", "Sehore", "Seoni", "Shahdol", "Shajapur", "Sheopur", "Shivpuri", "Sidhi", "Singrauli", "Tikamgarh", "Ujjain", "Umaria", "Vidisha"],
+      "Maharashtra": ["Ahmednagar", "Akola", "Amravati", "Aurangabad", "Beed", "Bhandara", "Buldhana", "Chandrapur", "Dhule", "Gadchiroli", "Gondia", "Hingoli", "Jalgaon", "Jalna", "Kolhapur", "Latur", "Mumbai City", "Mumbai Suburban", "Nagpur", "Nanded", "Nandurbar", "Nashik", "Osmanabad", "Palghar", "Parbhani", "Pune", "Raigad", "Ratnagiri", "Sangli", "Satara", "Sindhudurg", "Solapur", "Thane", "Wardha", "Washim", "Yavatmal"],
+      "Manipur": ["Bishnupur", "Chandel", "Churachandpur", "Imphal East", "Imphal West", "Jiribam", "Kakching", "Kamjong", "Kangpokpi", "Noney", "Pherzawl", "Senapati", "Tamenglong", "Tengnoupal", "Thoubal", "Ukhrul"],
+      "Meghalaya": ["East Garo Hills", "East Jaintia Hills", "East Khasi Hills", "Eastern West Khasi Hills", "North Garo Hills", "Ri Bhoi", "South Garo Hills", "South West Garo Hills", "South West Khasi Hills", "West Garo Hills", "West Jaintia Hills", "West Khasi Hills"],
+      "Mizoram": ["Aizawl", "Champhai", "Hnahthial", "Khawzawl", "Kolasib", "Lawngtlai", "Lunglei", "Mamit", "Saiha", "Saitual", "Serchhip"],
+      "Nagaland": ["Chumoukedima", "Dimapur", "Kiphire", "Kohima", "Longleng", "Mokokchung", "Mon", "Niuland", "Noklak", "Peren", "Phek", "Shamator", "Tseminyu", "Tuensang", "Wokha", "Zunheboto"],
+      "Odisha": ["Angul", "Balangir", "Balasore", "Bargarh", "Bhadrak", "Boudh", "Cuttack", "Deogarh", "Dhenkanal", "Gajapati", "Ganjam", "Jagatsinghpur", "Jajpur", "Jharsuguda", "Kalahandi", "Kandhamal", "Kendrapara", "Kendujhar", "Khordha", "Koraput", "Malkangiri", "Mayurbhanj", "Nabarangpur", "Nayagarh", "Nuapada", "Puri", "Rayagada", "Sambalpur", "Subarnapur", "Sundargarh"],
+      "Puducherry": ["Karaikal", "Mahe", "Puducherry", "Yanam"],
+      "Punjab": ["Amritsar", "Barnala", "Bathinda", "Faridkot", "Fatehgarh Sahib", "Fazilka", "Ferozepur", "Gurdaspur", "Hoshiarpur", "Jalandhar", "Kapurthala", "Ludhiana", "Malerkotla", "Mansa", "Moga", "Muktsar", "Pathankot", "Patiala", "Rupnagar", "Sangrur", "Shahid Bhagat Singh Nagar", "Tarn Taran"],
+      "Rajasthan": ["Ajmer", "Alwar", "Banswara", "Baran", "Barmer", "Bharatpur", "Bhilwara", "Bikaner", "Bundi", "Chittorgarh", "Churu", "Dausa", "Dholpur", "Dungarpur", "Hanumangarh", "Jaipur", "Jaisalmer", "Jalore", "Jhalawar", "Jhunjhunu", "Jodhpur", "Karauli", "Kota", "Nagaur", "Pali", "Pratapgarh", "Rajsamand", "Sawai Madhopur", "Sikar", "Sirohi", "Sri Ganganagar", "Tonk", "Udaipur"],
+      "Sikkim": ["Gangtok", "Gyalshing", "Mangan", "Namchi", "Pakyong", "Soreng"],
+      "Tamil Nadu": ["Ariyalur", "Chengalpattu", "Chennai", "Coimbatore", "Cuddalore", "Dharmapuri", "Dindigul", "Erode", "Kallakurichi", "Kanchipuram", "Kanyakumari", "Karur", "Krishnagiri", "Madurai", "Mayiladuthurai", "Nagapattinam", "Namakkal", "Nilgiris", "Perambalur", "Pudukkottai", "Ramanathapuram", "Ranipet", "Salem", "Sivaganga", "Tenkasi", "Thanjavur", "Theni", "Thoothukudi", "Tiruchirappalli", "Tirunelveli", "Tirupathur", "Tiruppur", "Tiruvallur", "Tiruvannamalai", "Tiruvarur", "Vellore", "Viluppuram", "Virudhunagar"],
+      "Telangana": ["Adilabad", "Bhadradri Kothagudem", "Hyderabad", "Jagtial", "Jangaon", "Jayashankar Bhupalpally", "Jogulamba Gadwal", "Kamareddy", "Karimnagar", "Khammam", "Kumuram Bheem Asifabad", "Mahabubabad", "Mahabubnagar", "Mancherial", "Medak", "Medchal-Malkajgiri", "Mulugu", "Nagarkurnool", "Nalgonda", "Narayanpet", "Nirmal", "Nizamabad", "Peddapalli", "Rajanna Sircilla", "Rangareddy", "Sangareddy", "Siddipet", "Suryapet", "Vikarabad", "Wanaparthy", "Warangal", "Yadadri Bhuvanagiri"],
+      "Tripura": ["Dhalai", "Gomati", "Khowai", "North Tripura", "Sepahijala", "South Tripura", "Unakoti", "West Tripura"],
+      "Uttar Pradesh": ["Agra", "Aligarh", "Ambedkar Nagar", "Amethi", "Amroha", "Auraiya", "Ayodhya", "Azamgarh", "Baghpat", "Bahraich", "Ballia", "Balrampur", "Banda", "Barabanki", "Bareilly", "Basti", "Bhadohi", "Bijnor", "Budaun", "Bulandshahr", "Chandauli", "Chitrakoot", "Deoria", "Etah", "Etawah", "Farrukhabad", "Fatehpur", "Firozabad", "Gautam Buddha Nagar", "Ghaziabad", "Ghazipur", "Gonda", "Gorakhpur", "Hamirpur", "Hapur", "Hardoi", "Hathras", "Jalaun", "Jaunpur", "Jhansi", "Kannauj", "Kanpur Dehat", "Kanpur Nagar", "Kasganj", "Kaushambi", "Kheri", "Kushinagar", "Lalitpur", "Lucknow", "Maharajganj", "Mahoba", "Mainpuri", "Mathura", "Mau", "Meerut", "Mirzapur", "Moradabad", "Muzaffarnagar", "Pilibhit", "Pratapgarh", "Prayagraj", "Raebareli", "Rampur", "Saharanpur", "Sambhal", "Sant Kabir Nagar", "Shahjahanpur", "Shamli", "Shravasti", "Siddharthnagar", "Sitapur", "Sonbhadra", "Sultanpur", "Unnao", "Varanasi"],
+      "Uttarakhand": ["Almora", "Bageshwar", "Chamoli", "Champawat", "Dehradun", "Haridwar", "Nainital", "Pauri Garhwal", "Pithoragarh", "Rudraprayag", "Tehri Garhwal", "Udham Singh Nagar", "Uttarkashi"],
+      "West Bengal": ["Alipurduar", "Bankura", "Birbhum", "Cooch Behar", "Dakshin Dinajpur", "Darjeeling", "Hooghly", "Howrah", "Jalpaiguri", "Jhargram", "Kalimpong", "Kolkata", "Malda", "Murshidabad", "Nadia", "North 24 Parganas", "Paschim Bardhaman", "Paschim Medinipur", "Purba Bardhaman", "Purba Medinipur", "Purulia", "South 24 Parganas", "Uttar Dinajpur"]
+    };
 
-// ========== THEME ==========
-function initTheme() {
-  const saved = localStorage.getItem('theme') || 'light';
-  document.documentElement.setAttribute('data-theme', saved);
-  updateThemeIcon(saved);
-}
-function toggleTheme() {
-  const current = document.documentElement.getAttribute('data-theme') || 'light';
-  const next = current === 'light' ? 'dark' : 'light';
-  document.documentElement.setAttribute('data-theme', next);
-  localStorage.setItem('theme', next);
-  updateThemeIcon(next);
-}
-function updateThemeIcon(theme) {
-  const btn = document.getElementById('themeBtn');
-  if (theme === 'dark') {
-    btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
-  } else {
-    btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
-  }
-}
+    // ========== LIVE STORE (ALL DEFAULT / SAMPLE DATA REMOVED) ==========
+    const STORAGE_KEY = 'mutual_transfer_in_listings';
+    const TTL_DAYS = 90;
 
-// ========== NAVIGATION ==========
-function showSection(id) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-  document.querySelector(`[data-nav="${id}"]`)?.classList.add('active');
-  if (id === 'listings') renderListings();
-  if (id === 'home') updateStats();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+    // Identified demo IDs to permanently purge from browser localStorage
+    const DEMO_IDS = new Set(['rec-101', 'rec-102', 'rec-103', 'rec-104', 'rec-105']);
+    const DEMO_EMP_IDS = new Set(['EMP-92041', 'EMP-81923', 'EMP-54120', 'EMP-77192', 'EMP-33821']);
 
-// ========== API HELPERS ==========
-async function apiPost(endpoint, body) {
-  const res = await fetch(`${API_BASE}${endpoint}`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body)
-  });
-  return res.json();
-}
-async function apiGet(endpoint) {
-  const res = await fetch(`${API_BASE}${endpoint}`);
-  return res.json();
-}
-async function apiDelete(endpoint) {
-  const res = await fetch(`${API_BASE}${endpoint}`, { method: 'DELETE' });
-  return res.json();
-}
+    function getStore() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify([]));
+          return [];
+        }
+        let list = JSON.parse(raw);
+        if (!Array.isArray(list)) list = [];
 
-// ========== REGISTRATION ==========
-async function handleRegister(e) {
-  e.preventDefault();
-  const alertBox = document.getElementById('regAlert');
-  const btn = document.getElementById('regSubmitBtn');
-  alertBox.innerHTML = '';
-  btn.disabled = true;
-  btn.innerHTML = '<span class="loading-spinner"></span> Submitting...';
+        // Filter out any lingering sample/default demo records
+        const liveOnly = list.filter(item => {
+          if (!item) return false;
+          if (DEMO_IDS.has(item.id)) return false;
+          if (DEMO_EMP_IDS.has(item.empId)) return false;
+          return true;
+        });
 
-  const name = document.getElementById('regName').value.trim();
-  const empId = document.getElementById('regEmpId').value.trim();
-  const designation = document.getElementById('regDesignation').value;
-  const phone = document.getElementById('regPhone').value.trim();
-  const currentDistrict = document.getElementById('regCurrentDistrict').value.trim();
-  const requiredDistrict = document.getElementById('regRequiredDistrict').value.trim();
+        // If demo items were cleaned up, write back the cleansed live data to localStorage
+        if (liveOnly.length !== list.length) {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(liveOnly));
+        }
 
-  if (currentDistrict.toLowerCase() === requiredDistrict.toLowerCase()) {
-    alertBox.innerHTML = '<div class="alert alert-warning">Current and required districts cannot be the same.</div>';
-    btn.disabled = false;
-    btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Submit Registration';
-    return;
-  }
-
-  try {
-    const result = await apiPost('/api/register', {
-      name, empId, designation, phone, currentDistrict, requiredDistrict
-    });
-
-    if (result.success) {
-      alertBox.innerHTML = '<div class="alert alert-success">' + result.message + '</div>';
-      document.getElementById('registerForm').reset();
-      updateStats();
-    } else {
-      alertBox.innerHTML = '<div class="alert alert-error">' + result.message + '</div>';
-    }
-  } catch (err) {
-    alertBox.innerHTML = '<div class="alert alert-error">Network error. Please check your connection and try again.</div>';
-  }
-
-  btn.disabled = false;
-  btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Submit Registration';
-}
-
-// ========== SEARCH ==========
-async function performSearch() {
-  const current = document.getElementById('searchCurrent').value.trim();
-  const required = document.getElementById('searchRequired').value.trim();
-  const designation = document.getElementById('searchDesignation').value;
-  const container = document.getElementById('searchResults');
-  const btn = document.getElementById('searchBtn');
-
-  if (!current || !required) {
-    container.innerHTML = '<div class="alert alert-warning">Please enter both current and required districts.</div>';
-    return;
-  }
-
-  btn.disabled = true;
-  btn.innerHTML = '<span class="loading-spinner"></span> Searching...';
-
-  try {
-    let url = `/api/search?current=${encodeURIComponent(current)}&required=${encodeURIComponent(required)}`;
-    if (designation) url += `&designation=${encodeURIComponent(designation)}`;
-
-    const result = await apiGet(url);
-
-    if (!result.success) {
-      container.innerHTML = '<div class="alert alert-error">' + result.message + '</div>';
-      btn.disabled = false;
-      btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg> Search';
-      return;
+        const cutoff = Date.now() - (TTL_DAYS * 86400000);
+        return liveOnly.filter(item => item.timestamp && item.timestamp > cutoff);
+      } catch (e) {
+        return [];
+      }
     }
 
-    if (result.count === 0) {
-      container.innerHTML = `
-        <div class="empty-state">
-          <div class="empty-state-icon">🔍</div>
-          <h3>No matches found</h3>
-          <p>No employees found looking to transfer from <strong>${escapeHtml(capitalize(required))}</strong> to <strong>${escapeHtml(capitalize(current))}</strong>.
-          <br>Try broadening your search or check back later.</p>
-        </div>`;
-    } else {
-      let html = `<div style="margin-bottom:16px;font-size:14px;color:var(--text-secondary);">Found <strong>${result.count}</strong> mutual transfer partner(s)</div>`;
-      html += '<div class="results-grid">';
-      result.data.forEach(match => {
-        html += renderResultCard(match);
+    function saveStore(data) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    // Helper: Escape HTML
+    function escapeHTML(str) {
+      if (!str) return '';
+      return String(str).replace(/[&<>'"]/g, tag => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        "'": '&#39;',
+        '"': '&quot;'
+      }[tag] || tag));
+    }
+
+    // ========== NAVIGATION ==========
+    function switchSection(sectionId) {
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      const target = document.getElementById(sectionId);
+      if (target) {
+        target.classList.add('active');
+      }
+
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-nav') === sectionId);
       });
-      html += '</div>';
+
+      if (sectionId === 'listings') {
+        renderAllListings();
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ========== THEME TOGGLE ==========
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('mt_theme', next);
+      updateThemeIcon(next);
+    }
+
+    function updateThemeIcon(theme) {
+      const icon = document.getElementById('themeIcon');
+      if (theme === 'dark') {
+        icon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+      } else {
+        icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+      }
+    }
+
+    // ========== TOAST SYSTEM ==========
+    function showToast(msg, type = 'info') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = `toast ${type}`;
+      
+      let icon = 'ℹ️';
+      if (type === 'success') icon = '✅';
+      if (type === 'error') icon = '❌';
+      if (type === 'warning') icon = '⚠️';
+
+      toast.innerHTML = `<span>${icon}</span><span>${escapeHTML(msg)}</span>`;
+      container.appendChild(toast);
+
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(12px)';
+        setTimeout(() => toast.remove(), 300);
+      }, 4000);
+    }
+
+    // ========== STATE & DISTRICT DROPDOWNS ==========
+    function initStates() {
+      const states = Object.keys(INDIA_GEO).sort();
+      const stateSelects = ['regCurrentState', 'regRequiredState', 'searchCurState', 'searchReqState'];
+      
+      stateSelects.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.innerHTML = '<option value="">Select State / UT</option>';
+        states.forEach(st => {
+          const opt = document.createElement('option');
+          opt.value = st;
+          opt.textContent = st;
+          el.appendChild(opt);
+        });
+      });
+    }
+
+    function updateDistricts(stateSelectId, districtSelectId) {
+      const stateVal = document.getElementById(stateSelectId).value;
+      const districtEl = document.getElementById(districtSelectId);
+      districtEl.innerHTML = '<option value="">Select District</option>';
+
+      if (stateVal && INDIA_GEO[stateVal]) {
+        INDIA_GEO[stateVal].forEach(d => {
+          const opt = document.createElement('option');
+          opt.value = d;
+          opt.textContent = d;
+          districtEl.appendChild(opt);
+        });
+        districtEl.disabled = false;
+      } else {
+        districtEl.disabled = true;
+      }
+
+      // Update dynamic hero chip if in registration section
+      if (stateSelectId === 'regCurrentState' || stateSelectId === 'regRequiredState') {
+        const curD = document.getElementById('regCurrentDistrict').value || 'Current District';
+        const reqD = document.getElementById('regRequiredDistrict').value || 'Desired District';
+        document.getElementById('previewCurLoc').textContent = curD + (stateVal ? `, ${stateVal}` : '');
+      }
+    }
+
+    // ========== REGISTRATION LOGIC ==========
+    function handleRegistration(e) {
+      e.preventDefault();
+      const name = document.getElementById('regName').value.trim();
+      const empId = document.getElementById('regEmpId').value.trim().toUpperCase();
+      const desig = document.getElementById('regDesignation').value;
+      const phone = document.getElementById('regPhone').value.trim();
+      const curState = document.getElementById('regCurrentState').value;
+      const curDist = document.getElementById('regCurrentDistrict').value;
+      const reqState = document.getElementById('regRequiredState').value;
+      const reqDist = document.getElementById('regRequiredDistrict').value;
+
+      if (!/^[6-9]\d{9}$/.test(phone)) {
+        showToast('Please enter a valid 10-digit Indian mobile number', 'error');
+        return;
+      }
+
+      if (curState === reqState && curDist === reqDist) {
+        showToast('Current and Desired districts cannot be identical', 'warning');
+        return;
+      }
+
+      const store = getStore();
+      const existingIdx = store.findIndex(item => item.empId === empId);
+
+      const record = {
+        id: 'live-' + Date.now(),
+        name,
+        empId,
+        designation: desig,
+        phone,
+        currentState: curState,
+        currentDistrict: curDist,
+        requiredState: reqState,
+        requiredDistrict: reqDist,
+        timestamp: Date.now()
+      };
+
+      if (existingIdx >= 0) {
+        store[existingIdx] = record;
+        showToast(`Existing listing for ${empId} updated successfully!`, 'success');
+      } else {
+        store.unshift(record);
+        showToast('Transfer request submitted successfully! Active for 90 days.', 'success');
+      }
+
+      saveStore(store);
+      resetRegForm();
+      switchSection('listings');
+    }
+
+    function resetRegForm() {
+      document.getElementById('registerForm').reset();
+      document.getElementById('regCurrentDistrict').innerHTML = '<option value="">Select State first</option>';
+      document.getElementById('regCurrentDistrict').disabled = true;
+      document.getElementById('regRequiredDistrict').innerHTML = '<option value="">Select State first</option>';
+      document.getElementById('regRequiredDistrict').disabled = true;
+    }
+
+    // ========== SEARCH LOGIC (RECIPROCAL MATCHING) ==========
+    function performSearch() {
+      const curDist = document.getElementById('searchCurDistrict').value;
+      const reqDist = document.getElementById('searchReqDistrict').value;
+      const desig = document.getElementById('searchDesignation').value;
+      const container = document.getElementById('searchResultsContainer');
+
+      if (!curDist || !reqDist) {
+        showToast('Please select both your current and target districts to search', 'warning');
+        return;
+      }
+
+      const store = getStore();
+
+      // Reciprocal match:
+      // Someone currently working in target district (reqDist) who wants to transfer to my current district (curDist)
+      const exactMatches = store.filter(item => {
+        const worksWhereIWantToGo = item.currentDistrict.toLowerCase() === reqDist.toLowerCase();
+        const wantsWhereIAm = item.requiredDistrict.toLowerCase() === curDist.toLowerCase();
+        const desigMatches = !desig || item.designation === desig;
+        return worksWhereIWantToGo && wantsWhereIAm && desigMatches;
+      });
+
+      // Partial / one-way matches:
+      const partialMatches = store.filter(item => {
+        const worksWhereIWantToGo = item.currentDistrict.toLowerCase() === reqDist.toLowerCase();
+        const desigMatches = !desig || item.designation === desig;
+        const alreadyExact = exactMatches.some(m => m.id === item.id);
+        return worksWhereIWantToGo && desigMatches && !alreadyExact;
+      });
+
+      if (exactMatches.length === 0 && partialMatches.length === 0) {
+        container.innerHTML = `
+          <div style="text-align:center; padding: 48px 20px; color: var(--text-muted); background: var(--bg-alt); border-radius: var(--radius); margin-top: 24px;">
+            <div style="font-size: 36px; margin-bottom: 12px;">🔍</div>
+            <h3 style="font-size: 18px; color: var(--text-main); margin-bottom: 6px;">No Mutual Partner Found Yet</h3>
+            <p style="font-size: 14px; max-width: 480px; margin: 0 auto 16px;">
+              No employee is currently registered looking to swap directly from <strong>${escapeHTML(reqDist)}</strong> to <strong>${escapeHTML(curDist)}</strong>.
+            </p>
+            <button class="btn btn-primary" onclick="switchSection('register')">Register Your Request to be Discovered</button>
+          </div>
+        `;
+        return;
+      }
+
+      let html = '';
+      if (exactMatches.length > 0) {
+        html += `
+          <div style="margin-top: 28px; margin-bottom: 16px;">
+            <span class="badge" style="background: var(--success-soft); color: var(--success); font-size: 12px; padding: 4px 12px;">
+              ✨ ${exactMatches.length} Direct Mutual Transfer Match${exactMatches.length > 1 ? 'es' : ''} Found
+            </span>
+          </div>
+          <div class="results-grid">
+            ${exactMatches.map(item => renderMatchCard(item, true)).join('')}
+          </div>
+        `;
+      }
+
+      if (partialMatches.length > 0) {
+        html += `
+          <div style="margin-top: 36px; margin-bottom: 16px;">
+            <span class="badge" style="background: var(--accent-soft); color: var(--accent); font-size: 12px; padding: 4px 12px;">
+              Employees in ${escapeHTML(reqDist)} seeking other locations (${partialMatches.length})
+            </span>
+          </div>
+          <div class="results-grid">
+            ${partialMatches.map(item => renderMatchCard(item, false)).join('')}
+          </div>
+        `;
+      }
+
       container.innerHTML = html;
     }
-  } catch (err) {
-    container.innerHTML = '<div class="alert alert-error">Network error. Please check your connection.</div>';
-  }
 
-  btn.disabled = false;
-  btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg> Search';
-}
+    function renderMatchCard(item, isDirectMatch) {
+      const masked = item.phone.slice(0, 2) + '******' + item.phone.slice(-2);
+      const daysLeft = Math.max(1, TTL_DAYS - Math.floor((Date.now() - item.timestamp) / 86400000));
+      const initial = item.name ? item.name.charAt(0).toUpperCase() : 'E';
 
-function clearSearch() {
-  document.getElementById('searchCurrent').value = '';
-  document.getElementById('searchRequired').value = '';
-  document.getElementById('searchDesignation').value = '';
-  document.getElementById('searchResults').innerHTML = '';
-}
+      return `
+        <div class="match-card" id="card-${item.id}">
+          <div class="match-header">
+            <div class="match-avatar">${initial}</div>
+            <div class="match-info">
+              <h4>${escapeHTML(item.name)}</h4>
+              <div>
+                <span class="badge ${item.designation === 'GDS' ? 'badge-gds' : 'badge-dept'}">${escapeHTML(item.designation)}</span>
+                <span style="font-size: 12px; color: var(--text-muted); margin-left: 6px;">${escapeHTML(item.empId)}</span>
+              </div>
+            </div>
+          </div>
 
-function renderResultCard(item) {
-  const initials = item.name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
-  const badgeClass = item.designation === 'GDS' ? 'badge-gds' : 'badge-dept';
+          <div class="route-flow">
+            <div>
+              <span class="route-step-label">Current Posting</span>
+              <span class="route-step-place" title="${escapeHTML(item.currentDistrict)}, ${escapeHTML(item.currentState)}">${escapeHTML(item.currentDistrict)}</span>
+            </div>
+            <div class="route-arrow">⇄</div>
+            <div>
+              <span class="route-step-label">Wants Transfer To</span>
+              <span class="route-step-place" title="${escapeHTML(item.requiredDistrict)}, ${escapeHTML(item.requiredState)}">${escapeHTML(item.requiredDistrict)}</span>
+            </div>
+          </div>
 
-  return `
-    <div class="result-card">
-      <div class="result-header">
-        <div class="result-avatar">${initials}</div>
-        <div>
-          <div class="result-name">${escapeHtml(item.name)}</div>
-          <div class="result-meta">
-            <span class="badge ${badgeClass}">${item.designation}</span>
-            <span style="margin-left:8px;">${escapeHtml(item.empId)}</span>
+          <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
+            ⏳ Listing active: <strong>${daysLeft} days remaining</strong>
+          </div>
+
+          <div class="contact-reveal-row">
+            <span class="masked-phone" id="phone-${item.id}">${masked}</span>
+            <button class="btn-eye" onclick="openDisclaimerModal('${item.id}', '${item.phone}')">
+              <span>👁️ Reveal Contact</span>
+            </button>
           </div>
         </div>
-      </div>
-      <div class="result-row">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <span class="label">From:</span>
-        <span class="value">${escapeHtml(item.currentDistrict)}</span>
-      </div>
-      <div class="result-row">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <span class="label">To:</span>
-        <span class="value">${escapeHtml(item.requiredDistrict)}</span>
-      </div>
-      <div class="result-row">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <span class="label">Expires in:</span>
-        <span class="value">${item.daysLeft} days</span>
-      </div>
-      <div class="contact-reveal">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--text-muted);"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        <span class="contact-masked" id="phone-${item.id}">${item.phoneMasked}</span>
-        <button class="eye-btn" onclick="requestReveal('${item.id}', '${item.phone}')" title="Show contact number" aria-label="Show contact number">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-        </button>
-      </div>
-    </div>
-  `;
-}
-
-// ========== CONTACT REVEAL ==========
-function requestReveal(id, phone) {
-  currentRevealId = id;
-  currentRevealPhone = phone;
-  if (acceptedDisclaimer) {
-    revealPhone(id, phone);
-  } else {
-    document.getElementById('disclaimerModal').classList.add('active');
-  }
-}
-let currentRevealPhone = null;
-function acceptDisclaimer() {
-  acceptedDisclaimer = true;
-  closeDisclaimer();
-  if (currentRevealId && currentRevealPhone) revealPhone(currentRevealId, currentRevealPhone);
-}
-function closeDisclaimer() {
-  document.getElementById('disclaimerModal').classList.remove('active');
-  currentRevealId = null;
-  currentRevealPhone = null;
-}
-function revealPhone(id, phone) {
-  const el = document.getElementById(`phone-${id}`);
-  if (el) {
-    el.textContent = phone;
-    el.classList.remove('contact-masked');
-    el.classList.add('contact-full');
-    const btn = el.nextElementSibling;
-    if (btn) {
-      btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
-      btn.style.color = 'var(--success)';
-      btn.style.borderColor = 'var(--success)';
-      btn.style.background = 'var(--success-soft)';
-      btn.onclick = null;
-      btn.title = 'Contact revealed';
-    }
-  }
-}
-
-// ========== LISTINGS TABLE ==========
-async function renderListings() {
-  const container = document.getElementById('listingsTable');
-  container.innerHTML = '<div class="empty-state"><div class="loading-spinner" style="width:32px;height:32px;margin:0 auto 16px;"></div><p>Loading listings...</p></div>';
-
-  try {
-    const result = await apiGet('/api/listings');
-    if (!result.success) {
-      container.innerHTML = '<div class="alert alert-error">Failed to load listings.</div>';
-      return;
-    }
-
-    const data = result.data;
-    if (data.length === 0) {
-      container.innerHTML = `
-        <div class="empty-state">
-          <div class="empty-state-icon">📋</div>
-          <h3>No active listings</h3>
-          <p>Be the first to register your transfer request.</p>
-        </div>`;
-      return;
-    }
-
-    let html = `
-      <div style="overflow-x:auto;">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Employee ID</th>
-            <th>Designation</th>
-            <th>Current District</th>
-            <th>Required District</th>
-            <th>Days Left</th>
-          </tr>
-        </thead>
-        <tbody>
-    `;
-    data.forEach(item => {
-      const badgeClass = item.designation === 'GDS' ? 'badge-gds' : 'badge-dept';
-      html += `
-        <tr>
-          <td class="name-cell">${escapeHtml(item.name)}</td>
-          <td>${escapeHtml(item.empId)}</td>
-          <td><span class="badge ${badgeClass}">${item.designation}</span></td>
-          <td>${escapeHtml(item.currentDistrict)}</td>
-          <td>${escapeHtml(item.requiredDistrict)}</td>
-          <td>${item.daysLeft} days</td>
-        </tr>
       `;
+    }
+
+    function clearSearch() {
+      document.getElementById('searchCurState').value = '';
+      document.getElementById('searchCurDistrict').innerHTML = '<option value="">Select State first</option>';
+      document.getElementById('searchCurDistrict').disabled = true;
+      document.getElementById('searchReqState').value = '';
+      document.getElementById('searchReqDistrict').innerHTML = '<option value="">Select State first</option>';
+      document.getElementById('searchReqDistrict').disabled = true;
+      document.getElementById('searchDesignation').value = '';
+      document.getElementById('searchResultsContainer').innerHTML = '';
+    }
+
+    // ========== ALL LISTINGS TABLE ==========
+    function renderAllListings() {
+      const tbody = document.getElementById('listingsTableBody');
+      const store = getStore();
+      const filter = (document.getElementById('tableFilterInput').value || '').toLowerCase().trim();
+
+      const filtered = store.filter(item => {
+        if (!filter) return true;
+        return item.name.toLowerCase().includes(filter) ||
+               item.currentDistrict.toLowerCase().includes(filter) ||
+               item.requiredDistrict.toLowerCase().includes(filter) ||
+               item.designation.toLowerCase().includes(filter) ||
+               item.empId.toLowerCase().includes(filter);
+      });
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="6" style="text-align: center; padding: 52px 24px; color: var(--text-muted);">
+              <div style="font-size: 38px; margin-bottom: 12px; filter: drop-shadow(0 4px 12px var(--accent-glow));">📋</div>
+              <div style="font-size: 18px; font-weight: 700; color: var(--text-main); margin-bottom: 8px;">No Live Registered Listings Yet</div>
+              <p style="font-size: 14px; max-width: 460px; margin: 0 auto 20px; color: var(--text-muted); line-height: 1.55;">
+                This tab displays exclusively listings registered by live users. All default demo data has been cleared. Register your profile to be the first!
+              </p>
+              <button class="btn btn-primary" onclick="switchSection('register')" style="padding: 10px 24px; font-size: 14px; font-weight: 600;">
+                <span>📝</span> Register Your Profile Now
+              </button>
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(item => {
+        const daysLeft = Math.max(1, TTL_DAYS - Math.floor((Date.now() - item.timestamp) / 86400000));
+        const masked = item.phone.slice(0, 2) + '******' + item.phone.slice(-2);
+        return `
+          <tr>
+            <td style="font-weight: 700;">${escapeHTML(item.name)}</td>
+            <td><span class="badge ${item.designation === 'GDS' ? 'badge-gds' : 'badge-dept'}">${escapeHTML(item.designation)}</span></td>
+            <td>${escapeHTML(item.currentDistrict)}, ${escapeHTML(item.currentState)}</td>
+            <td>${escapeHTML(item.requiredDistrict)}, ${escapeHTML(item.requiredState)}</td>
+            <td><span style="color: var(--success); font-weight: 600;">● Active (${daysLeft}d left)</span></td>
+            <td>
+              <button class="btn-eye" onclick="openDisclaimerModal('${item.id}', '${item.phone}')">
+                👁️ <span id="table-phone-${item.id}">${masked}</span>
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function filterAllListings() {
+      renderAllListings();
+    }
+
+    // ========== CONTACT REVEAL & DISCLAIMER MODAL ==========
+    let activeRevealTarget = { id: null, phone: null };
+
+    function openDisclaimerModal(id, phone) {
+      activeRevealTarget = { id, phone };
+      const checkbox = document.getElementById('modalAgreeCheckbox');
+      const confirmBtn = document.getElementById('modalConfirmBtn');
+      checkbox.checked = false;
+      confirmBtn.disabled = true;
+
+      checkbox.onchange = () => {
+        confirmBtn.disabled = !checkbox.checked;
+      };
+
+      document.getElementById('disclaimerModal').classList.add('active');
+    }
+
+    function closeDisclaimerModal() {
+      document.getElementById('disclaimerModal').classList.remove('active');
+      activeRevealTarget = { id: null, phone: null };
+    }
+
+    function confirmRevealContact() {
+      if (activeRevealTarget.id && activeRevealTarget.phone) {
+        // Update in search card if visible
+        const cardPhoneEl = document.getElementById(`phone-${activeRevealTarget.id}`);
+        if (cardPhoneEl) {
+          cardPhoneEl.textContent = activeRevealTarget.phone;
+          cardPhoneEl.classList.add('revealed');
+        }
+
+        // Update in table if visible
+        const tablePhoneEl = document.getElementById(`table-phone-${activeRevealTarget.id}`);
+        if (tablePhoneEl) {
+          tablePhoneEl.textContent = activeRevealTarget.phone;
+          tablePhoneEl.style.color = 'var(--success)';
+          tablePhoneEl.style.fontWeight = '700';
+        }
+
+        showToast('Contact number revealed! Please use it responsibly.', 'success');
+      }
+      closeDisclaimerModal();
+    }
+
+    // ========== MOTION AI GRAPHICS ENGINE ==========
+    function initAIMotionGraphics() {
+      const canvas = document.getElementById('aiHeroCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      let width = 0;
+      let height = 0;
+      let dpr = window.devicePixelRatio || 1;
+      let particles = [];
+      const particleCount = 55;
+      const maxDistance = 135;
+
+      const mouse = { x: null, y: null, radius: 160 };
+      const shockwaves = [];
+
+      function resize() {
+        const rect = canvas.parentElement ? canvas.parentElement.getBoundingClientRect() : canvas.getBoundingClientRect();
+        width = rect.width;
+        height = rect.height;
+        dpr = window.devicePixelRatio || 1;
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        ctx.scale(dpr, dpr);
+      }
+
+      window.addEventListener('resize', () => {
+        resize();
+      });
+
+      const heroEl = canvas.parentElement || canvas;
+      heroEl.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+      });
+
+      heroEl.addEventListener('mouseleave', () => {
+        mouse.x = null;
+        mouse.y = null;
+      });
+
+      heroEl.addEventListener('click', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const clickY = e.clientY - rect.top;
+        shockwaves.push({
+          x: clickX,
+          y: clickY,
+          radius: 5,
+          maxRadius: 180,
+          alpha: 0.9
+        });
+      });
+
+      class NeuralNode {
+        constructor() {
+          this.x = Math.random() * (width || 800);
+          this.y = Math.random() * (height || 400);
+          this.vx = (Math.random() - 0.5) * 0.75;
+          this.vy = (Math.random() - 0.5) * 0.75;
+          this.radius = Math.random() * 2.2 + 1.2;
+          this.pulse = Math.random() * Math.PI * 2;
+          this.pulseSpeed = 0.025 + Math.random() * 0.02;
+          this.isAccent = Math.random() > 0.65;
+        }
+
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          this.pulse += this.pulseSpeed;
+
+          if (this.x < 0) { this.x = 0; this.vx *= -1; }
+          if (this.x > width) { this.x = width; this.vx *= -1; }
+          if (this.y < 0) { this.y = 0; this.vy *= -1; }
+          if (this.y > height) { this.y = height; this.vy *= -1; }
+
+          // Magnetic mouse interaction
+          if (mouse.x !== null && mouse.y !== null) {
+            const dx = mouse.x - this.x;
+            const dy = mouse.y - this.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < mouse.radius && dist > 1) {
+              const force = (mouse.radius - dist) / mouse.radius;
+              this.x += (dx / dist) * force * 1.8;
+              this.y += (dy / dist) * force * 1.8;
+            }
+          }
+        }
+
+        draw(isDark) {
+          const dynamicRadius = Math.max(1, this.radius + Math.sin(this.pulse) * 0.7);
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, dynamicRadius, 0, Math.PI * 2);
+
+          if (isDark) {
+            ctx.fillStyle = this.isAccent ? '#38bdf8' : '#818cf8';
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = this.isAccent ? '#38bdf8' : '#6366f1';
+          } else {
+            ctx.fillStyle = this.isAccent ? '#0284c7' : '#4f46e5';
+            ctx.shadowBlur = 4;
+            ctx.shadowColor = 'rgba(37, 99, 235, 0.3)';
+          }
+          ctx.fill();
+          ctx.shadowBlur = 0;
+        }
+      }
+
+      function initParticles() {
+        resize();
+        particles = [];
+        for (let i = 0; i < particleCount; i++) {
+          particles.push(new NeuralNode());
+        }
+      }
+
+      let frameCount = 0;
+
+      function animate() {
+        frameCount++;
+        ctx.clearRect(0, 0, width, height);
+
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+
+        // Update & Render Shockwaves
+        for (let i = shockwaves.length - 1; i >= 0; i--) {
+          const sw = shockwaves[i];
+          sw.radius += 4;
+          sw.alpha *= 0.94;
+
+          ctx.beginPath();
+          ctx.arc(sw.x, sw.y, sw.radius, 0, Math.PI * 2);
+          ctx.strokeStyle = isDark ? `rgba(56, 189, 248, ${sw.alpha})` : `rgba(37, 99, 235, ${sw.alpha})`;
+          ctx.lineWidth = 2.5;
+          ctx.stroke();
+
+          if (sw.alpha < 0.04 || sw.radius >= sw.maxRadius) {
+            shockwaves.splice(i, 1);
+          }
+        }
+
+        // Draw Synaptic Filaments
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const p1 = particles[i];
+            const p2 = particles[j];
+            const dx = p1.x - p2.x;
+            const dy = p1.y - p2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < maxDistance) {
+              const alpha = (1 - dist / maxDistance);
+              ctx.beginPath();
+              ctx.moveTo(p1.x, p1.y);
+              ctx.lineTo(p2.x, p2.y);
+
+              if (isDark) {
+                ctx.strokeStyle = `rgba(96, 165, 250, ${alpha * 0.4})`;
+                ctx.lineWidth = 1;
+              } else {
+                ctx.strokeStyle = `rgba(37, 99, 235, ${alpha * 0.22})`;
+                ctx.lineWidth = 0.9;
+              }
+              ctx.stroke();
+
+              // Moving synaptic signal packets (quanta of information transfer)
+              if ((i + j) % 6 === 0) {
+                const packetProgress = ((frameCount * 0.015 + (i * 0.1)) % 1);
+                const px = p1.x + (p2.x - p1.x) * packetProgress;
+                const py = p1.y + (p2.y - p1.y) * packetProgress;
+                ctx.beginPath();
+                ctx.arc(px, py, 1.8, 0, Math.PI * 2);
+                ctx.fillStyle = isDark ? '#ffffff' : '#0284c7';
+                ctx.shadowBlur = isDark ? 6 : 2;
+                ctx.shadowColor = '#38bdf8';
+                ctx.fill();
+                ctx.shadowBlur = 0;
+              }
+            }
+          }
+
+          // Cursor connections
+          if (mouse.x !== null && mouse.y !== null) {
+            const mdx = mouse.x - particles[i].x;
+            const mdy = mouse.y - particles[i].y;
+            const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
+            if (mdist < mouse.radius) {
+              const mAlpha = (1 - mdist / mouse.radius);
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(mouse.x, mouse.y);
+              ctx.strokeStyle = isDark ? `rgba(6, 182, 212, ${mAlpha * 0.65})` : `rgba(14, 165, 233, ${mAlpha * 0.4})`;
+              ctx.lineWidth = 1.2;
+              ctx.stroke();
+            }
+          }
+        }
+
+        // Draw nodes
+        particles.forEach(p => {
+          p.update();
+          p.draw(isDark);
+        });
+
+        requestAnimationFrame(animate);
+      }
+
+      initParticles();
+      animate();
+    }
+
+    // ========== INITIALIZATION ==========
+    document.addEventListener('DOMContentLoaded', () => {
+      // Load saved theme
+      const savedTheme = localStorage.getItem('mt_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      updateThemeIcon(savedTheme);
+
+      // Initialize State Dropdowns
+      initStates();
+
+      // Ensure Store initialized (purges demo records immediately)
+      getStore();
+
+      // Start Motion AI Graphics
+      initAIMotionGraphics();
     });
-    html += '</tbody></table></div>';
-    container.innerHTML = html;
-  } catch (err) {
-    container.innerHTML = '<div class="alert alert-error">Network error. Could not load listings.</div>';
-  }
-}
-
-// ========== STATS ==========
-async function updateStats() {
-  try {
-    const result = await apiGet('/api/stats');
-    if (result.success) {
-      document.getElementById('statTotal').textContent = result.data.total;
-      document.getElementById('statMatches').textContent = result.data.matches;
-      document.getElementById('statDistricts').textContent = result.data.districts;
-    }
-  } catch (err) {
-    console.log('Stats fetch failed');
-  }
-}
-
-// ========== ADMIN ==========
-async function clearAllData() {
-  if (!confirm('Are you sure you want to delete ALL registered data? This cannot be undone.')) return;
-  try {
-    const result = await apiDelete('/api/clear');
-    if (result.success) {
-      alert(result.message);
-      renderListings();
-      updateStats();
-    } else {
-      alert('Error: ' + result.message);
-    }
-  } catch (err) {
-    alert('Network error. Could not clear data.');
-  }
-}
-
-// ========== UTILS ==========
-function escapeHtml(text) {
-  const div = document.createElement('div');
-  div.textContent = text;
-  return div.innerHTML;
-}
-function capitalize(str) {
-  return str.replace(/\b\w/g, c => c.toUpperCase());
-}
-
-// Close modal on overlay click
-document.getElementById('disclaimerModal').addEventListener('click', (e) => {
-  if (e.target === document.getElementById('disclaimerModal')) closeDisclaimer();
-});
-</script>
-
+  </script>
 </body>
 </html>
